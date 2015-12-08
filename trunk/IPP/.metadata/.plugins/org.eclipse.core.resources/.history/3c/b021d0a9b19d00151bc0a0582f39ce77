@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-2-17 19:38:44 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping default-lazy="false">
+    <class name="com.qihui.ssh.dao.entities.Novel" table="novel" catalog="lvyou">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employeeByCreateId" class="com.qihui.ssh.dao.entities.Employee" fetch="select">
+            <column name="CreateID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="employeeByAuthor" class="com.qihui.ssh.dao.entities.Employee" fetch="select">
+            <column name="Author" not-null="true" />
+        </many-to-one>
+        <many-to-one name="employeeByModifyId" class="com.qihui.ssh.dao.entities.Employee" fetch="select">
+            <column name="ModifyID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="codedvalue" class="com.qihui.ssh.dao.entities.Codedvalue" fetch="select">
+            <column name="NovelCategory" not-null="true" />
+        </many-to-one>
+        <many-to-one name="novelchapter" class="com.qihui.ssh.dao.entities.Novelchapter" fetch="select">
+            <column name="LatestChapterID" />
+        </many-to-one>
+        <property name="novelName" type="string">
+            <column name="NovelName" length="100" not-null="true" />
+        </property>
+        <property name="bookNumber" type="int">
+            <column name="BookNumber" not-null="true" />
+        </property>
+        <property name="wordsNumber" type="java.lang.Integer">
+            <column name="WordsNumber" />
+        </property>
+        <property name="createDate" type="date">
+            <column name="CreateDate" length="0" not-null="true" />
+        </property>
+        <property name="lastModifyDate" type="date">
+            <column name="LastModifyDate" length="0" not-null="true" />
+        </property>
+        <set name="novelchapters" table="novelchapter" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NovelID" not-null="true" />
+            </key>
+            <one-to-many class="com.qihui.ssh.dao.entities.Novelchapter" />
+        </set>
+    </class>
+</hibernate-mapping>

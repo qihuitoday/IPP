@@ -1,0 +1,35 @@
+package com.qihui.ssh.dao.site;
+
+import java.util.List;
+
+import com.qihui.ssh.dao.BaseDAOImpl;
+import com.qihui.ssh.dao.entities.Level;
+import com.qihui.ssh.dao.entities.Region;
+import com.qihui.ssh.dao.entities.Site;
+
+@SuppressWarnings("unchecked")
+public class SiteDAOImpl extends BaseDAOImpl implements SiteDAO {
+
+	public List<Region> getAllProvince() {
+		String hql = " from Region where parentId is null ";
+		List<Region> list = this.getHibernateTemplate().find(hql);
+		return list;
+	}
+
+	public List<Level> getAllLevel() {
+		String hql = " from Level order by id ";
+		List<Level> list = this.getHibernateTemplate().find(hql);
+		return list;
+	}
+	
+	public void addSite(Site site) {
+		this.createPOJO(site);
+	}
+
+	@Override
+	public List<Site> getSite() {
+		String hql = " from Site order by id ";
+		List<Site> list = this.getHibernateTemplate().find(hql);
+		return list;
+	}
+}

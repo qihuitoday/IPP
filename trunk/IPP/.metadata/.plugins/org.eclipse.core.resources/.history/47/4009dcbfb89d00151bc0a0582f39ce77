@@ -1,0 +1,18 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<div class=header>
+	<div class=top_nav>
+		<ul id=liLogin>
+	  		<li class=left></li>
+	  		<li><a id=btnLogin href='#'>Login</a></li>
+	  		<li>| </li>
+	  		<li><a id="btnHelp" href="#">Help</a></li>
+	  		<li class=right></li>
+	  	</ul>
+	</div>
+  	<br class=clearfloat>
+</div>
+<script>
+	$(function(){
+		register_or_login(); 
+	});
+</script>

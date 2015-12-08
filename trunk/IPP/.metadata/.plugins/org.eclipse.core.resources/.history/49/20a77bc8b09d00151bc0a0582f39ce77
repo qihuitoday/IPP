@@ -1,0 +1,29 @@
+log4j.rootCategory=ERROR, stdout, file
+
+### direct log messages to stdout ###
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target=System.out
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%l - %m%n
+
+### direct log messages to file CPOSOHES.log ###
+log4j.appender.file=org.apache.log4j.RollingFileAppender
+log4j.appender.file.MaxFileSize=500KB
+log4j.appender.file.MaxBackupIndex=200
+log4j.appender.file.File=D:/Project/logs/qhmengye.log
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern=[%d] %-5p (%13F:%L) %3x - %m%n
+
+log4j.logger.com.mmm.china.pos.web=INFO
+log4j.logger.com.mmm.china.pos.web.account=INFO
+log4j.logger.com.mmm.china.pos.web.customer=INFO
+log4j.logger.com.mmm.china.pos.web.sales=INFO
+log4j.logger.com.mmm.china.pos.web.sys=INFO
+log4j.logger.com.mmm.china.pos.domain.account=INFO
+log4j.logger.com.mmm.china.pos.domain.customer=INFO
+log4j.logger.com.mmm.china.pos.domain.sales=INFO
+log4j.logger.com.mmm.china.pos.domain.sys=INFO
+log4j.logger.com.mmm.china.pos.dao.account=INFO
+log4j.logger.com.mmm.china.pos.dao.customer=INFO
+log4j.logger.com.mmm.china.pos.dao.sales=INFO
+log4j.logger.com.mmm.china.pos.dao.sys=INFO

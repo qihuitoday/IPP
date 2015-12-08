@@ -1,0 +1,58 @@
+package com.qihui.ssh.service.user;
+
+import com.qihui.ssh.ContextTest;
+import com.qihui.ssh.dao.entities.Employee;
+
+public class UserServiceTest extends ContextTest {
+
+	private static UserService userService;
+
+	/*
+	 * 测试根据userName 查找User
+	 */
+	public void testGetUserByUserName() {
+		UserService userService = getService();
+		String userId = "1";
+		Employee employee = userService.getUserByUserId(userId);
+		if (employee != null) {
+			System.out.println(employee.getEmail());
+		}else{
+			System.out.println("Employee is not exist!");
+		}
+	}
+
+/*	
+	 * 测试查找�?��Active�?Tester Or testManager
+	 
+	public void testGetActiveUserListByRoleID() {
+		UserService userService = getService();
+		Integer roleID = new Integer(2); // 2代表Tester
+		List<User> userList = userService.getActiveUserListByRoleID(roleID);
+		if (userList != null) {
+			System.out.println(userList.size());
+		}
+	}
+
+	public void testGetUnmappedActiveUserList() {
+		UserService userService = getService();
+
+		Integer roleID = new Integer(2);
+		Integer projectID = new Integer(25);
+		List<User> unmappedUserList = userService.getUnmappedActiveUserList(
+				roleID, projectID);
+		if (unmappedUserList != null) {
+			System.out.println(unmappedUserList.size());
+		}
+	}*/
+
+	/*
+	 * 获取userService
+	 */
+	private UserService getService() {
+		if (userService == null) {
+			return (UserService) applicationContext.getBean("userService");
+		} else {
+			return userService;
+		}
+	}
+}

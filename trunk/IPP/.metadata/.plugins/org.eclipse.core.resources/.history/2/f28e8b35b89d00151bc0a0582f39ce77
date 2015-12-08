@@ -1,0 +1,825 @@
+/************/
+.area{ margin:0 auto; width:950px; overflow:hidden;}
+.area690{ float:left; width:690px;}
+.area250{ float:right; width:250px;}
+
+/* color */
+.cfff{ background-color:#fff;}
+.cf6f{ background-color:#f6f6f6;}
+.gg_banner{margin:0px auto; padding:5px 0px 0px 0px; background-color:#FFFFFF; width:950px;height:65px;}
+
+/* link */
+.c6,
+.c6 a,
+.c6 a:visited{ color:#666;}
+.c9,
+.c9 a,
+.c9 a:visited{ color:#999;}
+.c10,
+.c10 a,
+.c10 a:visited{ color:#1d86ac;}
+.c10 a:hover{ color:#0066cc;}
+.c11,
+.c11 a,
+.c11 a:visited{ color:#24a3ce;}
+.c12,
+.c12 a,
+.c12 a:visited{ color:#f96a0c;}
+.c13,
+.c13 a,
+.c13 a:visited{ color:#fe0000;}
+
+/* tit */
+.tit01,
+.tit02{ height:33px; overflow:hidden;}
+.tit01 h2,
+.tit02 h2{ float:left; padding:0 0 0 9px; font-size:14px; line-height:33px;}
+.tit02 h3{ float:left; padding:0 0 0 9px; font-size:14px; line-height:33px; width:100px;}
+.tit01 a.more,
+.tit02 a.more{ margin:10px 6px 0; display:block; width:17px; height:13px; background:url(../../images/bookbg.png) -530px -72px no-repeat;}
+
+.tit03{ height:26px; overflow:hidden; background:url(tit03_bg.gif) no-repeat;}
+.tit03 h2,
+.tit03 h2{ float:left; padding:5px 0 0 5px; width:91px; text-align:center; font-size:12px; line-height:20px;}
+.tit03 a.more{ margin:8px 16px 0; display:block; width:17px; height:13px; background:url(../../images/bookbg.png) -530px -72px no-repeat;}
+
+.tit01{ background:url(../../images/repeat-x.png) repeat-x;}
+.tit02{ background:url(../../images/repeat-x.png) repeat-x 0 -33px;}
+
+/* 路径信息 */
+.infoPath{ border:#c7c7c7 1px solid; border-top:#999 1px solid; height:28px; line-height:28px; background:url(../../images/repeat-x.png) repeat-x 0 -67px; padding-left:10px;}
+.infoPath a{ padding:0px 0px 0px 0px; margin-left:0px;}
+.infoPath .c6 a{ padding-right:6px; background:none;}
+
+/* 图书详细介绍 */
+.bookBox{ padding:10px 10px 0; width:668px; overflow:hidden; background:#f6f6f6;}
+.bookBox_l{ float:left; margin-right:20px; width:198px;}
+.bookBox_r{ float:left; width:444px;}
+.bookBox .img{ position:relative; margin:0 auto; width:198px; height:280px;}
+.bookBox .img img{ border:#e9e9e9 2px solid; padding:3px; width:189px; height:272px; background:#fff;}
+
+.voteBtnList{}
+.voteBtnList ul{ padding:1px 0 6px; width:198px; overflow:hidden;}
+.voteBtnList li{ float:left; margin:5px 0 0 13px; display:inline; padding:22px 0 0 32px; text-align:center; color:#666; width:48px; height:18px; background:url(../../images/bookbg.png) no-repeat; cursor:pointer;}
+.voteBtnList li.s{ background-position:0 0;}
+.voteBtnList li.r{ background-position:-80px 0;}
+.voteBtnList li.t{ background-position:0 -40px;}
+.voteBtnList li.g{ background-position:-80px -40px;}
+.voteBtnList li.p{ background-position:0 -80px;}
+
+.bookBox .bookTit{ padding:1px 0 10px 215px; text-align:left;}
+.bookBox .bookTit h1{padding-right:12px; display:inline; line-height:30px; font-size:24px;}
+.bookBox .bookTit span{ color:#999;display:block;padding:5px 0 0 5px;}
+.bookBox .bookTit span img { margin:-2px 0 0 3px}
+.bookBox .b_tab{ height:33px; background:url(../../images/bookbg.png) -96px -482px no-repeat;}
+.bookBox .b_tab ul{ float:left;}
+.bookBox .b_tab li{ float:left; width:96px; height:33px; line-height:27px; text-align:center; cursor:pointer; color:#666; font-weight:bold;}
+.bookBox .b_tab .btn_a{ color:#333; font-size:14px; background:url(../../images/bookbg.png) 0 -482px no-repeat;}
+.bookBox .b_tab .time{ float:right; padding:0 8px 0 0; line-height:27px; color:#999;}
+.bookBox .b_content{ margin:5px 5px; line-height:18px; height:200px; overflow:hidden;}
+.bookBox .b_content b{ display:block;}
+.bookBox .b_content p{ float:left; margin:3px 0;}
+.bookBox .b_content ul{}
+.bookBox .b_content li{ float:left; width:212px; margin-bottom:5px;}
+.bookBox .b_content li.tab{ padding:3px 5px; width:414px; background:#f1f1f1;}
+.bookBox .b_content li.tab b{ display:inline;}
+.bookBox .bookZt{}
+.bookBox .bookZt p{ margin-top:12px; *margin-top:10px; margin-left:5px; color:#666; font-size:14px; line-height:22px; *line-height:26px;}
+.bookBox .bookZt p big,
+.bookBox .bookZt p em{ margin:0 10px; font-weight:bold; font-style:italic;}
+.bookBox .bookZt p big{ color:#24a3ce; font-size:30px;}
+.bookBox .bookZt p em{ color:#f96a0c; font-size:20px;}
+.bookBox .bookZt .bookZt_btn{ float:right; padding:0px 10px 0 0; width:68px; overflow:hidden; font-size:12px;}
+.bookBox .bookZt .bookZt_btn li{ width:76px; height:28px; line-height:28px; text-align:center; background:url(../../images/bookbg.png) -420px -62px no-repeat; margin-bottom:6px;}
+.bookBox .bookZt .bookZt_god{ position:relative; padding:10px 0 5px 0; width:300px; color:#666; background:url(../../images/repeat-x.png) repeat-x left bottom;_background:url(repeat-x.gif) repeat-x left bottom;}
+.bookBox .bookZt .bookZt_god b{ font-size:14px; font-weight:normal;}
+.bookBox .bookZt .bookZt_god div{ padding:0 0 0 33px; height:24px; line-height:24px;}
+.bookBox .bookZt .bookZt_god em{ color:#333;}
+.bookBox .bookZt .bookZt_god img{ position:absolute; top:12px; left:4px;}
+.bookBox .bookFx{ margin:10px 15px 0; height:30px;}
+
+/* 评论 */
+.pinglun .tit01 a,
+.pinglun .tit01 a:visited{ color:#1d86ac;}
+.pinglun .tit01 .other{cursor:pointer;float:right; padding:0 10px 0 0; line-height:33px;}
+.pinglun .tit01 .other span{ padding:5px 30px 4px 25px; background:url(../../images/bookbg.png) -123px -117px no-repeat;}
+
+.pinglun_tab{ margin:12px 20px 0; height:36px; line-height:36px; background:url(../../images/repeat-x.png) repeat-x 0 -100px;}
+.pinglun_tab ul{ padding:0 10px;}
+.pinglun_tab li{ float:left; color:#666; width:85px; text-align:center; cursor:pointer;}
+.pinglun_tab .btn_a{ width:98px; font-size:14px; color:#333; background:url(../../images/bookbg.png) no-repeat -329px -232px;}
+.pinglun_tab .or{ float:right; padding:0 10px 0 0;}
+.pinglun_tab .or span{ padding:5px 10px 4px 10px; background:url(../../images/bookbg.png) no-repeat -240px -119px;}
+.pinglun_tab .btn{ float:left; margin-left:210px; display:inline; width:214px; text-align:center; background:url(../../images/bookbg.png) no-repeat 0 -352px;}
+.pinglun_tab .btn a{ margin:0 5px;}
+
+.pinglun_content{ margin:0 32px;}
+.pinglun_content .pinglun_li{ padding:5px 0 8px; border-bottom:1px dotted #999999}
+.pinglun_content .p_t{ padding:0 3px; height:28px; line-height:28px; overflow:hidden; background-color:#efefef}
+.pinglun_content .p_t img{ float:left; margin:8px 6px 0 0; display:inline;}
+.pinglun_content .p_t strong{ font-size:12px;}
+.pinglun_content .p_c{ margin:4px 12px 0px; line-height:21px; max-height:105px; overflow:hidden}
+.pinglun_content .p_b{ padding:3px 5px; color:#999; height:16px; line-height:18px; overflow:hidden; background:#fbfbfb;}
+.pinglun_content .p_b span{ float:left; margin-right:15px;}
+.pinglun_content .p_b span img{margin-top:2px;margin-left:3px;*margin-top:0;}
+.pinglun_content .p_b .w{ width:180px;}
+.pinglun_content .p_b em{ color:#333;}
+
+.pinglun_pl{ margin:0 20px 12px; background:#fafafa;}
+.pinglun_pl .pinglun_tab{ margin:0;}
+.pinglun_pl .ora{ position:relative; margin:0 auto; width:520px; height:37px; line-height:37px;}
+.pinglun_pl .ora span{ float:right; padding:5px 15px 4px 15px; background:url(../../images/bookbg.png) no-repeat -330px -186px;}
+.pinglun_pl .ora ul{ position:absolute; top:12px; right:0; padding:24px 0 0 15px; width:185px; height:95px; overflow:hidden; background:url(../../images/bookbg.png) -123px -151px no-repeat;}
+.pinglun_pl .ora li{ line-height:23px; cursor:pointer;}
+.pinglun_pl .pinglun_pl_ul,
+.pinglun_pl .pinglun_pl_ul li{ margin:0 auto; width:520px; overflow:hidden;}
+.pinglun_pl .pinglun_pl_ul li{ margin-bottom:10px;}
+.pinglun_pl label{ float:left; font-size:14px; width:45px; line-height:23px; font-weight:bold;}
+.pinglun_pl .text{ float:left; border:#dcdcdc 1px solid; padding:0 5px; width:463px; height:21px; line-height:21px; background:#fff;}
+.pinglun_pl .textarea{ float:left; border:#dcdcdc 1px solid; padding:3px 5px; width:463px; height:150px; line-height:18px; background:#fff;}
+.pinglun_pl .lt{ padding:0 0 0 45px; color:#999;}
+.pinglun_pl .l_btn{ text-align:center;}
+.pinglun_pl .l_btn input{ border:0; width:99px; height:31px; line-height:31px; color:#372305; font-size:14px; font-weight:bold; background:url(../../images/bookbg.png)-290px -84px no-repeat; cursor:pointer;}
+
+/* 作者公告 */
+.zzgg h2{padding-right:30px; background:url(../../images/bookbg.png) no-repeat right -414px;}
+.zzgg p{ padding:15px; line-height:18px; background:#f6f6f6;white-space:normal;word-break:break-all;}
+
+/* 天空的作品集 */
+.tkzpj .con{ padding:10px 0;}
+.tkzpj ul{ padding:0 12px;}
+.tkzpj li{ height:24px; line-height:24px; overflow:hidden; background:url(../../images/repeat-x.png) repeat-x left bottom;_background:url(repeat-x.gif) repeat-x left bottom;}
+.tkzpj li span{ float:left; margin-right:5px; width:62px; color:#999; background:#fff;}
+.tkzpj .nob{ background:none;}
+
+/* 排行榜 */
+.topList{}
+.topList .btn{ float:right; margin:2px 3px 0 0; display:inline; width:71px; height:26px; line-height:26px; text-align:center; background:url(../../images/bookbg.png) -237px -117px no-repeat;}
+.topList .con{ margin-bottom:5px; padding:0 9px 0 43px; background:url(../../images/bookbg.png) no-repeat -297px -554px;}
+.topList .con ul.top15{}
+.topList .con ul.top10{}
+.topList .con li{ height:24px; line-height:24px;overflow:hidden;background:url(../../images/repeat-x.png) repeat-x left bottom;_background:url(repeat-x.gif) repeat-x left bottom;}
+.topList .con li cite{ float:right; color:#999; font-style:normal;}
+
+.topList .con .li0{ margin-bottom:5px; height:40px; line-height:40px; background:#f6f6f6;}
+.topList .con .li0 a,
+.topList .con .li0 a:visited{ font-size:14px;}
+
+.display cite{ display:none;}
+
+/* 本书PK票排名 */
+.pkTop{}
+.pkTop dt{ padding:0 8px; color:#666; height:40px; background:#f6f6f6; overflow:hidden;}
+.pkTop dt .left{ padding:4px 0 0 0;}
+.pkTop dt .left em{ margin:0 2px; color:#f96e13; font-size:22px; font-weight:bold; font-style:italic; line-height:22px;}
+.pkTop dt .right{ padding:11px 0 0 0;}
+.pkTop dt .right em{ font-size:14px; color:#5abada;}
+.pkTop dd{ margin:0 12px;}
+.pkTop dd p{ height:29px; color:#666; line-height:29px; background:url(../../images/repeat-x.png) repeat-x 0 -299px;}
+.pkTop dd .nob{ background:none;}
+.pkTop .btn{ text-align:center; height:30px; line-height:30px;}
+.pkTop .btn a{ margin:5px 4px 0 4px; display:inline-block;width:89px;height:21px;line-height:21px; background:url(../../images/bookbg.png) no-repeat -437px -305px;}
+.pkTop .hotVote{ margin-top:10px; padding:12px 0 0 0; height:60px; background:url(../../images/bookbg.png) no-repeat -501px -179px;}
+.pkTop .hotVote .tp{ margin:0 auto; padding:20px 0 0 50px; width:66px; height:26px; line-height:22px; text-align:center; background:url(../../images/bookbg.png) -330px -123px no-repeat; cursor:pointer;}
+
+/* 投票 right */
+.vote_r .tit01{ margin:0 5px;}
+.vote_r .tit01 h2{ font-size:12px;}
+.vote_r ul{ margin:10px 12px 10px;}
+.vote_r li{ padding:5px 3px; color:#666; line-height:18px; overflow:hidden;background:url(../../images/repeat-x.png) repeat-x left bottom;_background:url(repeat-x.gif) repeat-x left bottom;}
+.vote_r li em{ color:#fd5f00;}
+
+/* 目录 */
+.directory{ clear:both; margin:0 auto; width:950px; overflow:hidden;}
+.directory_title{ position:relative; margin:20px 0 0 0; width:950px; overflow:hidden; text-align:center;}
+.directory_title h1{ display:inline; font-size:26px; text-align:center; line-height:30px;}
+.directory_title span{ margin-left:12px; color:#999;}
+.directory_title .bookZt_god{ position:absolute; top:35px; left:0; width:300px; text-align:left; color:#666;}
+.directory_title .bookZt_god b{ font-size:14px; font-weight:normal;}
+.directory_title .bookZt_god div{ padding:0 20px 0 33px; height:24px; line-height:24px; background:#f6f6f6;}
+.directory_title .bookZt_god em{ color:#333;}
+.directory_title .bookZt_god img{ position:absolute; top:3px; left:4px;}
+.directory_title .btn{ margin:10px 0 0 0; height:23px;}
+.directory_title .btn li{ margin:0 5px; display:inline; width:68px; height:23px; line-height:23px; background:url(../../images/bookbg.png) -420px -90px no-repeat;}
+.directory_con{ margin:10px 0; background-color:#eff8fe}
+.directory_con .tit{ height:32px; text-align:center; background:url(../../images/repeat-x.png) repeat-x 0 -100px;}
+.directory_con .tit h2{ display:inline; font-size:14px; line-height:32px;}
+.directory_con .tit span{ margin-left:5px;}
+.directory_con ul{ margin:20px 0; width:950px; overflow:hidden; background:url(../../images/li01.gif);}
+.directory_con li{ float:left; padding:0 0 0 40px; width:180px; height:29px; line-height:29px; overflow:hidden;}
+.directory_con li em{ margin-right:5px; font-size:11px; font-family:Arial, Helvetica, sans-serif; color:#fe0000;}
+.directory_con li a{color:#025b81;}
+.directory_con li a:visited{ color:#cc0000;}
+
+/* 阅读 */
+.read{ clear:both; margin:0 auto; width:950px; overflow:hidden; background:#e7f4fe;}
+.read_tit{ height:32px; background:url(../../images/repeat-x.png) repeat-x 0 -100px;}
+.read_tit .btn{ padding-right:5px;}
+.read_tit .btn li{ float:left; margin:0 0 0 5px; display:inline; width:68px; height:23px; line-height:23px; text-align:center;  background:url(../../images/bookbg.png) -420px -90px no-repeat;}
+.read_bottom{ clear:both;padding-bottom:15px;}
+.read_bottom .btn{ padding:12px 0 0 240px; padding-right:5px; height:40px;}
+.read_bottom .btn li{ float:left; margin:0 10px; display:inline; width:68px; height:23px; line-height:23px; text-align:center;  background:url(../../images/bookbg.png) -420px -90px no-repeat;}
+.read_bottom .btn li.z{ background:none; width:auto; font-size:16px; font-weight:bold;}
+.read_bottom p{ clear:both; text-align:center;}
+.read_bottom p span{ margin-left:10px;}
+.read_bottom p span a,
+.read_bottom p span a:visited{ color:#666; text-decoration:underline;}
+.read_bottom p span a:hover{ text-decoration:none;}
+
+.readArea{clear:both; width:950px; overflow:hidden; font-size:16px; border-bottom:#6fb3cc 2px solid;}
+.readArea h1{ padding:25px 0 15px; font-size:26px; text-align:center; line-height:40px;}
+.readArea .p{ padding:0 42px 20px; font-size:22px; line-height:155%;word-wrap:break-word;}
+
+.readAreaBox{position:relative;*margin-right:-3px;*float:left;}
+
+.readAreaBox .side{ position:absolute; top:50px; right:0px; padding-top:5px; width:22px;padding-right:2px; height:67px; text-align:center; font-size:12px; font-weight:bold; background:url(../../images/bookbg.png) no-repeat -446px -113px; line-height:15px; color:#c30; cursor:pointer;}
+
+.rightSide{ border-left:#feebd9 1px solid; font-size:12px; width:242px;float:right;}
+.rightSide ul{ margin:12px 10px;}
+.rightSide li{ height:18px; line-height:18px; overflow:hidden;}
+.rightSide dl{ margin:12px 10px; border:#ccc 1px solid; font-size:14px; font-weight:bold;}
+.rightSide dt{ border-bottom:#ccc 1px solid; padding:0 0 0 10px; color:#9c4900; line-height:29px;}
+.rightSide dd{ padding:10px; line-height:24px;}
+
+#setting{ float:left; margin-top:4px;}
+#fontColor,
+#fontSize{ float:left; margin-left:10px; display:inline;}
+#fontColor strong,
+#fontSize strong{ float:left; margin:0 5px 0 0;}
+#fontColor{ background:url(../../images/fontColor.gif) no-repeat 96px 0;}
+#fontColor span{ float:left; margin-right:3px; padding-top:15px; width:15px; height:0; overflow:hidden; cursor:pointer;}
+#fontSize span{ float:left; margin-right:5px; text-decoration:underline; cursor:pointer;}
+
+.note{ padding:12px 0 0 0; text-align:center; font-size:14px; line-height:25px; background:#fff;}
+
+.zzJs{ background:#fff;}
+.zzJs .tit{ padding:0 0 0 5px; height:32px; background:url(pinglun_tab_bg.gif) repeat-x;}
+.zzJs .tit h2{ float:left; line-height:32px; font-size:14px;}
+.zzJs .con{ margin:0 auto; padding:1px 0 3px 0; width:950px; overflow:hidden; background:url(pinglun_tab_bg.gif) repeat-x left bottom;}
+.zzJs .img{ float:left; padding:0 0 0 2px;}
+.zzJs .img img{ float:left; width:180px; height:120px;}
+.zzJs .txt{ float:left; padding:0 20px; width:462px;}
+.zzJs .txt strong{ display:block; margin:5px 0 8px; font-weight:normal; font-size:14px; line-height:22px;}
+.zzJs .txt p{ color:#808080;}
+.zzJs .txt ul{ width:462px; overflow:hidden;}
+.zzJs .txt li{ float:left; margin-right:30px; width:200px; height:24px; line-height:24px; overflow:hidden;background:url(../../images/repeat-x.png) repeat-x left bottom;_background:url(repeat-x.gif) repeat-x left bottom;}
+.zzJs .txt li span{ float:left; margin-right:5px; color:#999; width:62px; background:#fff;}
+.zzJs .vote_btn{ float:right; width:196px;}
+.zzJs .vote_btn ul{ height:90px;}
+.zzJs .vote_btn li{ float:left; margin:6px 0 0 10px; display:inline; padding-top:54px; width:52px; height:28px; line-height:20px; color:#999; text-align:center; background:url(../../images/bookbg.png) no-repeat -160px 0; cursor:pointer;}
+.zzJs .vote_btn li.s{ background-position:0 0;}
+.zzJs .vote_btn li.r{ background-position:-156px 0;}
+.zzJs .vote_btn li.t{ background-position:-104px 0;}
+.zzJs .vote_btn li.p{ background-position:-208px 0;}
+.zzJs .vote_btn p{ text-align:center; font-size:12px;}
+
+.zzjs0824{overflow:hidden;height:90px;}
+.zzjs0824 li.zzxh{ overflow:hidden;height:90px;background:url(../../images/bookbg.png) no-repeat -160px 0;}
+.zzjs0824 li.zzgb{ overflow:hidden;height:90px;background:url(../../images/bookbg.png) no-repeat -264px 0;}
+.zzjs0824 li.zzpk{ overflow:hidden;height:90px;background:url(../../images/bookbg.png) no-repeat -368px 0;}
+
+.tjTable{}
+.tjTable h2{ height:52px; line-height:52px; font-size:16px; color:#f00; text-align:center; background:url(pinglun_tab_bg.gif) repeat-x left bottom #fff;}
+.tjTable .con{ padding:12px 0;}
+caption{ text-align:center; font-size:14px; font-weight:bold; background:#f4f4f4; line-height:31px;}
+.table{ width:95%; background:#fff; border-collapse:collapse;}
+.table th{ background:url(pinglun_tab_bg.gif) repeat-x;}
+.table th,
+.table td{ padding:5px 10px; border:#dcdcdc 1px solid;}
+
+.jpListImg{ clear:both; background:#fff;}
+.jpListImg .con ul{ width:950px; overflow:hidden;}
+.jpListImg .con li{ float:left; padding:20px 0 10px 10px; width:227px; overflow:hidden;}
+.jpListImg .con li .img{ float:left; margin-right:8px;}
+.jpListImg .con li .img img{ border:#ababab 1px solid; padding:3px; width:120px; height:173px;}
+.jpListImg .con li strong{ margin:5px 0; display:block; font-size:14px;}
+.jpListImg .con li p{ margin:5px 0;}
+
+.jpListImg .pinglun_tab{ margin:12px 0 0;}
+
+.otherTable{ width:950px; overflow:hidden;}
+.otherTable .left{ padding:20px 0 20px 20px; width:415px;}
+.otherTable .left .table{ width:100%;}
+.otherTable .right{ padding:20px 20px 20px 0; width:475px;}
+.otherTable .right h2{ line-height:38px; color:#f00; text-align:center; font-size:16px;}
+
+.otherTable .pinglun_tab{ margin:0 0 10px 0;}
+.otherTable ul,
+.otherTable li{ margin:0 auto; width:445px; overflow:hidden;}
+.otherTable li{ margin-bottom:10px;}
+.otherTable .text{ width:380px;}
+.otherTable .textarea{ width:380px;}
+
+.otherTable .btn{ margin-left:0;}
+.otherTable .pinglun_pl{ margin:0;}
+
+/* 分享 */
+#ckepop{}
+#ckepop span{ float:left;}
+
+/*关注此作品的网友还关注 By BennyTian*/
+.correlative ul{list-style:none;text-align:center;margin:0;margin-top: 5px;margin-bottom: 5px; zoom:1;}
+.correlative ul li{width:120px;float:left;}
+.correlative ul li div{width:70px;height:110px;margin:0 auto;}
+.correlative ul li div img{width:75px;height:108px;}
+.correlative ul li span{display:block;margin:5px 0;}
+
+.listBook ul{ margin:0 auto; padding:17px 0 6px 0; width:928px; overflow:hidden;}
+.listBook li{ float:left; width:116px; text-align:center;}
+.listBook li img{ border:#c7c7c7 1px solid; width:75px; height:108px;}
+.listBook li span{ display:block; margin:5px 0; height:20px; line-height:20px; overflow:hidden;}
+
+/* 0818书签 */
+.bookBox{z-index:99;}
+.sqbox{position:absolute;top:6px;left:0;width:160px;height:62px;z-index:100;}
+.sq0818{height:62px;padding-left:11px;_padding-left:6px;}
+.sq0818 a{text-decoration:none;display:inline-block;width:57px;padding-right:3px;height:20px;line-height:20px;text-align:center;margin:2px 10px 0 0;background:url(../../images/bookbg.png) no-repeat 0 -217px;}
+.sq0818 a:hover{text-decoration:none;}
+.sq0818 a.a1{color:#f96910;}
+.sq0818 a.a2{color:#f96910;}
+.sq0818 a.a3{color:#489002;}
+.sq0818 a.a4{color:#489002;}
+
+.sq0818 a.a3:hover{background:url(../../images/bookbg.png) no-repeat 0 -217px;}
+.sq0818 a.a4:hover{background:url(../../images/bookbg.png) no-repeat 0 -217px;}
+
+.sqqy{position:absolute;top:5px;right:3px;width:111px;height:71px;z-index:100;background:url(../../images/bookbg.png) no-repeat -240px -360px;_background:url(bookbg.gif) no-repeat -240px -360px;}
+.ct0416{text-align:center;}
+.recent_read{text-align:center;line-height:30px;}
+.recent_read a{margin-right:10px;}
+.c12{line-height:26px;}
+
+/* 书评 */
+.comment{padding:15px 20px;overflow:hidden;font-family:'宋体';zoom:1;}
+.comment a,.comment a:visited{color:#1d86ac;}
+.comment a:hover{color:#1d86ac;}
+.comment i{font-style:normal;}
+
+.comment h3{background:url(../../images/comment.png) repeat-x;height:30px;line-height:27px;font-size:12px;padding-left:30px;}
+.tit-tab{float:left;font-weight:100;color:#ccc;}
+.tit-tab a{display:inline-block;padding:0 11px;font-weight:bold;}
+.tit-tab a.on,.tit-tab a.on:visited{border:1px solid #dfdede;border-width:1px 1px 0 1px;background:#fff;height:29px;color:#333;}
+
+.tit-ckbut{float:right;font-weight:100;margin-right:10px;}
+.tit-ckbut em{cursor:pointer;background:url(../../images/comment.png) no-repeat 0 -137px;height:21px;width:66px;display:inline-block;line-height:21px;text-align:center;margin-left:15px;overflow:hidden;}
+.tit-ckbut em a:hover{text-decoration:none;}
+
+.comment h4{height:30px;line-height:30px;padding:10px 0;color:#1d86ac;font-weight:100;text-align:right;font-size:12px;}
+.comment h4 a{margin:0 5px;}
+.comment h4 a.on,.comment h4 a.on:visited{font-weight:bold;color:#666;}
+.comment h4 span{color:#666;float:left;height:25px;line-height:28px;padding-top:2px;}
+.comment h4 span a,.comment h4 span a:visited{float:left;overflow:hidden;margin:0 5px;background:url(../../images/comment.png) no-repeat 0 -31px;display:inline-block;height:25px;line-height:25px;padding-left:22px;font-weight:bold;color:#fff;}
+.comment h4 span a:hover{text-decoration:none;color:#fff;}
+.comment h4 span a em{cursor:pointer;background:url(../../images/comment.png) no-repeat right -31px;display:inline-block;height:25px;line-height:26px;padding-right:22px;}
+.comment h4 span a.a1,.comment h4 span a.a1:visited{background-position:0 -57px;color:#666;}
+.comment h4 span a.a1 em{background-position:right -57px;}
+.comment h4 span a.a2,.comment h4 span a.a2:visited{background-position:0 -57px;color:#666;padding-left:10px;}
+.comment h4 span a.a2 em{background-position:right -57px;padding-right:10px;}
+.comment h4 a.a3,.comment h4 a.a3:visited{float:right;overflow:hidden;margin:0 5px;background:url(../../images/comment.png) no-repeat 0 -57px;display:inline-block;height:25px;line-height:25px;padding-left:22px;font-weight:bold;color:#666;margin-left:10px;}
+.comment h4 a.a3 em{cursor:pointer;background:url(../../images/comment.png) no-repeat right -57px;display:inline-block;height:25px;line-height:28px;padding-right:22px;}
+.comment h4 a.a3:hover{text-decoration:none;color:#666;}
+.comment h4 span label{cursor:pointer;float:left;}
+.comment h4 span label input{vertical-align:middle;margin-right:3px;}
+
+.comment dl{overflow:hidden;margin-bottom:5px;padding-bottom:10px;zoom:1;}
+.comment dl dt{float:left;width:50px;text-align:center;}
+.comment dl dt img{margin-bottom:7px;}
+.comment dl dt img.head{border: 1px solid #F0F0F0;width:50px;height:50px;}
+.comment dl dd{float:right;width:582px;line-height:21px;overflow:hidden;}
+
+.comment1 dl dt{float:left;width:50px;text-align:center;}
+.comment1 dl dt.checkbox{width:20px;padding-top:16px;overflow:hidden;}
+.comment1 dl dt.checkbox input{margin:0;float:left;}
+.comment1 dl dt img{margin-bottom:7px;}
+.comment1 dl dt img.head{width:50px;height:50px;}
+.comment1 dl dd{float:right;width:564px;line-height:21px;overflow:hidden;}
+
+.comment-del dl{padding-bottom:5px;}
+.comment-del dl dt.checkbox{width:20px;padding-top:7px;overflow:hidden;}
+.comment-del dl dt.checkbox input{margin:0;float:left;}
+.comment-del dl dd{float:right;width:620px;line-height:21px;overflow:hidden;}
+.comment-del dl dd .cc-new{background:#fff;padding-left:0;color:#999;}
+
+.comment-dan{padding-top:0;}
+
+.cc-tit{background:#efefef;height:27px;line-height:27px;padding-left:5px;_height:20px;_padding-top:7px;Border-top:1px dotted #BCBCBC;}
+.cc-tit img{vertical-align:middle;margin-top:-2px;margin-left:5px;}
+.cc-tit strong{margin-left:5px;font-weight:100;}
+.cc-tit strong a,.cc-tit strong a:visited{font-weight:bold;margin-left:7px;color:#666;}
+.cc-tit em{float:right;color:#8d8d8d;margin-right:10px;_margin-top:-5px;}
+.cc-bg{background:#FFF0E4;}
+.cc-bg1{background:#fff;}
+.cc-content{padding:5px 0 5px 5px;color:#333;}
+.cc-content span{clear:both;display:block;padding-top:5px;}
+.cc-content span em{margin-left:5px;}
+.cc-content span i{color:#1d86ac;margin-left:3px;}
+.authorbg{background:#ffebda;padding:5px 10px;}
+
+.cc-new{background:#FBFBFB;height:30px;line-height:30px;padding-left:5px;color:#999;}
+.cc-new img{vertical-align:text-top;margin:0 3px;}
+.cc-new i{margin-left:10px;}
+.cc-new em{float:right;margin-right:10px;}
+.cc-new em a{margin:0 3px;}
+.cc-new span{float:left;_padding-top:9px;}
+
+.cc-author{background:#FFF0E4;line-height:21px;padding:5px 10px 5px 10px;margin:0 0 1px 0;color:#333;}
+.cc-author span{clear:both;display:block;line-height:26px;border-bottom:1px dotted #e6d4c5;padding-left:3px;color:#666;margin-bottom:10px;}
+.cc-author span em{float:right;}
+.cc-author cite{font-style:normal;padding:0 8px;display:block;}
+.cc-author cite a{font-family:Arial, Helvetica, sans-serif, }
+.cc-author i{display:block;text-align:right;padding-top:5px;color:#8d8d8d;}
+.cc-author img{vertical-align:middle;margin:0 3px;}
+
+.page{color:#666666;padding:20px 0;text-align:center;clear:both;}
+.page a{background:url(../../images/comment.png) no-repeat scroll left -83px transparent;color:#666;display:inline-block;height:26px;padding-left:1px;margin:0 3px;}
+.page a span{background:url(../../images/comment.png) no-repeat scroll right -83px transparent;color:#666;cursor:pointer;display:inline-block;height:26px;line-height:26px;margin-left:1px;padding:0 10px;}
+.page a:hover{background-position:0 -110px;text-decoration:none;}
+.page a:hover span{background-position:right -110px;color:#fff;}
+.page a.on{background-position:0 -110px;}
+.page a.on span{background-position:right -110px;color:#fff;font-weight:bold;margin-left:1px;}
+.page input{border:1px solid #E0E0E0;height:23px;line-height:23px;margin:0 3px;padding:0 3px;vertical-align:middle;width:30px;}
+
+.yjfk{padding:10px;line-height:24px;color:#666;overflow:hidden;zoom:1;}
+.yjfk a,.yjfk a:visited{color:#1d86ac;float:right;margin-right:6px;}
+.yjfk a:hover{color:#1d86ac;}
+
+.comment-tj{background:url(../../images/comment.png) no-repeat -184px -317px;margin:15px 20px;padding:0 0 0 22px;line-height:24px;}
+.bookinfo{padding:10px;}
+.bookinfo dl{border-bottom:1px dashed #999;overflow:hidden;padding-bottom:10px;margin-bottom:10px;zoom:1;}
+.bookinfo dl dt{float:left;margin-right:10px;}
+.bookinfo dl dt img{width:75px;height:108px;}
+.bookinfo dl dd{float:left;line-height:24px;color:#333;}
+.ydbut a{color:#333;background:url("http://img.17k.com/style/book/../../images/bookbg.png") no-repeat -420px -62px;display:inline-block;margin-top:8px;height:28px;line-height:28px;text-align:center;width:76px;}
+.ydbut a:hover{text-decoration:none;}
+.gly{color:#666;}
+.gly a,.gly a:visited{color:#1d86ac;margin:0 3px;}
+.gly a:hover{color:#1d86ac;}
+.sqbut{padding-top:10px;text-align:center;}
+.sqbut a,.sqbut a:visited{background:url("http://img.17k.com/style/book/../../images/bookbg.png") no-repeat scroll -123px -117px;display:inline-block;width:112px;height:21px;line-height:21px;text-align:center;color:#1d86ac;}
+.sqbut a:hover{text-decoration:none;color:#1d86ac;}
+
+.comment-top img{vertical-align:middle;margin-left:5px;float:left;margin-top:3px;*margin-top:0px;}
+.comment-top li.li0 img{margin-top:11px;}
+.comment-top a{float:left;}
+.comment-top  em{float:right;}
+
+.respond{clear:both;padding:15px 0 0 0;}
+.respond h5{font-size:12px;text-align:right;font-weight:100;color:#666;border:1px dotted #ccc;border-width:0 0 1px 0;line-height:37px;}
+.respond h5 span{float:left;}
+.respond h5 span a,.respond h5 span a:visited{margin:0 3px;color:#666;}
+.respond h5 span a:hover{color:#666;}
+.respond h5 span a.on{font-weight:bold;}
+.respond .cc-new{background:#fff;}
+.respond dl{padding-bottom:10px;}
+.nodata{text-align:center;line-height:42px;border-bottom:1px dotted #ccc;}
+
+
+img.head30{width:30px;height:30px;border: 1px solid #F0F0F0;padding:1px;vertical-align:middle;}
+img.head50{width:50px;height:50px;border: 1px solid #F0F0F0;padding:1px;vertical-align:middle;}
+
+.respond dl dt img{margin-bottom:7px;}
+.respond dl dt.checkbox{width:20px;padding-top:8px;overflow:hidden;}
+.respond .cc-tit{background:none;}
+
+dl.author-bg{padding-bottom:10px;}
+.author-bg dd{background:#ffebda;}
+.author-bg .cc-tit{background:#ffebda;padding:10px 5px 0 5px;color:#1d86ac;border-bottom:1px dotted #ccc;}
+.author-bg .cc-new{background:#ffebda;padding:0 5px;}
+.author-bg .cc-content{padding:0 5px;}
+
+.comment-admin h4{border-bottom:1px dotted #ccc;height:30px;line-height:30px;padding:10px 0 0 0;color:#666;}
+.comment-admin h5{line-height:40px;font-size:12px;font-weight:100;color:#666;}
+.comment-admin h5 a{margin:0 3px;color:#666;}
+.comment-admin h5 a.on{font-weight:bold;}
+
+.comment-admin table{font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;width:100%;color:#666;margin:0 auto;border-collapse:collapse;}
+.comment-admin td,th{text-align:left;padding-left:10px;}
+.comment-admin th{line-height:32px;padding-top:3px;background:#efefef;}
+.comment-admin td{border-bottom:1px dotted #999;padding:10px 5px;}
+.comment-admin td img{vertical-align:middle;_margin-top:-2px;margin-left:5px;}
+.comment-admin td img.head{width:30px;height:30px;margin-right:10px;}
+.comment-admin td a,.comment-admin td a:visited{color:#666;}
+.send-comment .tip{clear:both;zoom:1;height:25px;overflow:hidden;text-align:right;line-height:25px;padding-top:5px;}
+.send-comment .tip em{float:right;}
+
+.kind .buts a{padding:0;}
+.noadbut{vertical-align:middle;margin-left:5px;background:url(http://img.17k.com/zhuanti/read-xc/noad.gif) no-repeat;width:123px;height:27px;overflow:hidden;display:inline-block;text-indent:-99999px;}
+.x-tj{float:right; line-height:33px; padding-right:15px;}
+
+/* 1211 17:43 */
+.book_btn_new{float:right; padding:0px 10px 0 0; width:68px; overflow:hidden; font-size:12px;bottom:10px;right:10px;position:absolute;}
+.book_btn_new li{ width:76px; height:28px; line-height:28px; text-align:center; background:url(../../images/bookbg.png) -420px -62px no-repeat; margin-bottom:6px;}
+.book_btn_new li.cake-close,
+.book_btn_new li.cake-open{background:none;}
+
+.listBook h2 strong{cursor:pointer;margin-right:20px;margin-top:2px;padding:0 15px;}	
+.listBook h2 .s_on{color:#990000;background:#fff;display:inline-block;}
+.listBook .c11_s{padding-top:10px;}
+.listBook .c11_s li{display:inline-block;padding:0 25px 0 0;width:auto;text-align:left;line-height:21px;}
+.zjlist_s{overflow:hidden;zoom:1;}
+
+/************/
+
+.main{width:950px;margin:0 auto;}
+.m-top{margin-top:10px;}
+.searchty {width:670px;margin:0 auto;}
+.searchwd h1{text-align:center;width:600px;padding:40px 0;}
+#search_content {background:url(../../images/novelSearch.png) repeat-x 0 -216px;width:522px;height:39px;position:relative;float:left;}
+.selecta {width:100px;height:36px;color:#666;z-index:1;background:url(../../images/novelSearch.png) repeat-x 0 -177px;}
+
+#search_content input {background:url(../../images/novelSearch.png) no-repeat right -255px;width:400px;height:37px;line-height:37px;padding-left:5px;border:0;font-size:14px;position:absolute;top:0px;right:0px;color:#000;}
+#search_content .active {background:#f7f7f7;}
+.searchwd .btn {cursor:pointer;margin-left:10px;border:none;width:97px;height:39px;background:url(../../images/novelSearch.png) repeat-x 0 -531px;float:left;}
+/*.searchwd a{margin:0 8px;color:#666;}*/
+
+.searchkey{position:absolute;width:421px;top:36px;left:97px;border:1px solid #f96a0c;background:#fff;z-index:1001;}
+.searchkey a{line-height:26px;height:26px;padding:0 10px;color:#666;display:block;overflow:hidden;margin:0;}
+.searchkey a:hover{background:#fafafa;}
+.searchkey a span{float:left;}
+.searchkey a em{float:right;}
+.searchkey a font{font-size:12px;color:#f96a0c;}
+
+.searchkey .suggest_link_over{background:#fafafa;}
+.searchkey .suggest_link{background:#fff;}
+
+.ssjg {width:670px;background:url(../../images/novelSearch.png) no-repeat 0 -98px;_background:url(search.gif) no-repeat 0 -98px;padding-left:185px;margin:15px auto;position:relative;z-index:101;position:relative;padding-top:5px;}
+.ssjg .yqs{display:block;width:170px;height:44px;position:absolute;top:0;left:0;text-indent:-9999px;}
+.words{clear:both;line-height:30px;padding-left:30px;color:#666;}
+.words a{margin-right:15px;}
+
+.hotwords{margin-top:40px;overflow:hidden;margin-bottom:20px;}
+.hotwords .l{width:470px;float:left;margin-right:10px;}
+.hotwords .r{margin:0;}
+
+.box h3{font-size:12px;background:url(../../images/novelSearch.png) repeat-x 0 -294px;height:31px;line-height:31px;padding-left:20px;border:1px solid #f5d3c6;border-width:0 1px;color:#666;}
+.box ul{border:1px solid #f5d3c6;border-width:0 1px 1px;padding:10px 20px;}
+.box ul li {}
+.box .l ul li a{display:inline-block;margin:10px 6px 0 7px;font-size:14px;color:#666;}
+
+.tags{margin-top:10px;}
+.tags ul{padding:10px;}
+.tags a{padding:2px 5px;margin-top:10px;display:inline-block;font-size:12px;TEXT-DECORATION:none;}
+.tags a:hover {color:#fff !important;}
+
+.searchjg{margin-top:10px;margin-bottom:10px;position:relative;}
+.searchjg .l{width:170px;margin-right:10px;float:left;}
+.searchjg .r{width:770px;float:left;}
+.searchjg:after{content: ".";display: block;height:0;clear:both;visibility:hidden;}
+
+.flbox h3{font-size:12px;background:url(../../images/novelSearch.png) repeat-x 0 -294px;height:31px;line-height:31px;padding-left:20px;border:1px solid #f5d3c6;border-width:0 1px;color:#666;}
+.flbox .menu{border:1px solid #f5d3c6;border-width:0 1px 1px;padding:10px 20px;}
+.slist{display:none;}
+
+/*fenlei*/
+#fenlei h2{font-size:12px;background:url(../../images/novelSearch.png) repeat-x 0 -294px;height:31px;line-height:31px;padding-left:20px;border:1px solid #f5d3c6;border-width:0 1px;color:#666;}
+#fenlei h2 a:hover{text-decoration:none;}
+#fenlei .mc{width:209px;border:solid #fff;border-width:0 1px 1px;}
+#fenlei .item{border:1px solid #f5d3c6;border-width:0 1px 1px 1px;}
+#fenlei .item h3{cursor:pointer;background:#fcf4ef;height:32px;line-height:32px;padding-left:20px;font-size:12px;}
+#fenlei .item a{color:#666;}
+#fenlei .item b{float:right;width:7px;height:7px;margin-top:13px;margin-right:15px;background:url(../../images/novelSearch.png) repeat-x right -560px;overflow:hidden;cursor:pointer;}
+#fenlei .item .hidden{display:none;}
+#fenlei .item ul{padding:4px 0 4px 20px;overflow:hidden;zoom:1;}
+#fenlei .item li{height:18px;padding:3px 4px 3px 0;overflow:hidden;}
+#fenlei .item span{font-weight:normal;color:#999;font-family:Arial;font-size:10px;margin-left:5px;}
+#fenlei .hover h3{border-bottom:1px solid #f5d3c6;}
+#fenlei .hover b{background-position:right -575px;}
+#fenlei .hover .hidden{display:block;}
+#fenlei .fh{padding:5px 0;text-align:right;padding-right:15px;overflow:hidden;}
+#fenlei .extra{padding:5px 0;overflow:hidden;}
+#fenlei .more{display:block;border:1px solid #f5d3c6;width:140px;height:24px;line-height:24px;margin:0 auto;text-align:center;color:#666;background:url(../../images/novelSearch.png) repeat-x 0 -325px;overflow:hidden;*line-height:24px;font-size:12px;}
+#fenlei .more span{display:inline-block;cursor:pointer;}
+#fenlei .item a.fb{color:#f96a0c;}
+
+.fldh h3{font-weight:100;font-size:12px;background:url(../../images/novelSearch.png) repeat-x 0 -294px;height:31px;line-height:31px;padding-left:20px;border:1px solid #f5d3c6;border-width:0 1px;color:#666;}
+.fldh span{float:left;display:inline-block;background:url(../../images/novelSearch.png) no-repeat right -353px;height:28px;margin-top:1px;overflow:hidden;padding:0 25px 0 5px;}
+.fldh span.nobg{background:none;}
+.fldh cite{font-style:normal;color:#ff6600;margin:0 2px;}
+.fldh span.open-fllist{cursor:pointer;float:right;background:#fff;margin-top:5px;border:1px solid #f5d3c6;border-bottom:0;width:96px;height:25px;line-height:24px;margin-right:5px;padding:0;text-align:center;}
+.fldh span.open-fllist b{width:11px;height:6px;_margin-top:12px;background:url(../../images/novelSearch.png) repeat-x right -588px;margin-left:5px;display:inline-block;overflow:hidden;}
+.fldh span.open-flliston{border-bottom:1px solid #f5d3c6;height:24px;}
+.fldh span.open-flliston b{background-position:right -598px;}
+
+.fllist{border:1px solid #f5d3c6;border-width:0 1px 1px;padding:10px 20px;display:none;}
+.fllist-item{line-height:30px;}
+.fllist-item dt{float:left;font-weight:bold;color:#666;}
+.fllist-item dd{color:#ff6600;}
+.fllist-item dd a{margin-left:18px;}
+.fllist-item dd a.fb{color:#ff6600;font-weight:bold}
+.hid{display:none;}
+
+
+.listtit{color:#666;background:url(../../images/novelSearch.png) repeat-x 0 -407px;height:32px;padding:7px 0 0 10px;}
+.listtit .titl{floaT:left;}
+.listtit .titr{floaT:right;}
+.listtit .titl strong{line-height:26px;color:#ff6600;font-size:12px;}
+
+.tl{float:left;}
+.titbut i{font-weight:100;font-style:normal;}
+.titbut a{color:#666;font-weight:100;display:inline-block;height:26px;line-height:26px;background:url(../../images/novelSearch.png) no-repeat 0 -381px;padding-left:1px;margin-right:10px;}
+.titbut a span{display:block;background:url(../../images/novelSearch.png) no-repeat right -381px;padding:0 10px;}
+.titbut a:hover{text-decoration:none;background:url(searchon.png) no-repeat 0 -381px;}
+.titbut a:hover span{text-decoration:none;background:url(searchon.png) no-repeat right -381px;}
+.titbut span.zx{display:inline-block;position:relative;background:#fff;margin-left:10px;border:1px solid #f5d3c6;width:60px;height:24px;line-height:24px;padding:0 10px;text-align:center;}
+.titbut span.zx b{vertical-align:middle;background:url(../../images/novelSearch.png) no-repeat right -632px;display:inline-block;width:7px;height:4px;margin-left:5px;_margin-top:10px;}
+.titbut span.zx span{position:absolute;top:24px;left:-1px;background:#fff;display:none;border:1px solid #f5d3c6;width:79px;height:auto;line-height:24px;text-align:center;}
+.titbut span.zx span a{background:#fff;}
+.titbut span.zx span a:hover{background:#fafafa;}
+.titbut a.onbg{background:url(searchon.png) no-repeat 0 -381px;color:#f96a0c;}
+.titbut a.onbg span{background:url(searchon.png) no-repeat right -381px}
+
+.search-list{margin-top:10px;border:1px solid #f5d3c6;padding-bottom:10px;}
+.search-list a.fy{margin:0 5px;}
+.search-list a.qh{background:url(../../images/novelSearch.png) left -570px no-repeat;line-height:26px;}
+.search-list a.qh span{color:#f96a0c;background:none;padding-left:31px;}
+.search-list a.qh:hover{background:url(../../images/novelSearch.png) left -596px no-repeat;}
+.search-list a.qh:hover span{background:none;}
+.search-list a.qh b{display:inline-block;margin:-2px 3px 0 0;}
+.search-list a.qh1,
+.search-list a.qh2{cursor:pointer;background:url(../../images/novelSearch.png) no-repeat -181px -504px;height:17px;line-height:17px;padding-left:23px;margin-top:5px;}
+.search-list a.qh1 span,
+.search-list a.qh2 span{background:none;}
+.search-list a.qh2{background-position:-181px -530px;}
+.search-list a.qh1:hover{background:url(../../images/novelSearch.png) no-repeat -181px -530px;}
+.search-list a.qh2:hover{background:url(../../images/novelSearch.png) no-repeat -181px -504px;}
+.search-list a.qh1:hover span,
+.search-list a.qh2:hover span{background:none;}
+.search-list a.qh3{background-position:0 -570px;}
+
+.textlist{border-bottom:1px dashed #e5e5e5;padding:10px 20px;overflow:hidden;margin-top:10px;}
+.textleft, .textmiddle, .textright{height:190px;}
+.textlist .textleft {float:left;_margin-right:-3px;overflow:hidden;width:96px;padding-top:15px;}
+.textlist .textmiddle {overflow:hidden;}
+.textlist .textright {float:right;width:129px;background:#f7f7f7;_margin-left:-3px;}
+
+.textleft img{border:1px solid #c7c7c7;width:94px;height:135px;}
+body .textright a{color:#666;displaY:block;background:url(../../images/novelSearch.png) no-repeat 0 -497px;width:101px;height:34px;text-align:center;line-height:33px;margin:11px 0 0 14px;font-weight:bold;font-size:14px;}
+.textright a:hover{text-decoration:none;background:url(searchon.png) no-repeat 0 -497px;color:#666;}
+.textmiddle dl{padding:0 10px;}
+.textmiddle dt{font-weight:bold;font-size:14px;margin:5px 0;}
+.textmiddle li strong{display:block;float:left;}
+.textmiddle li p{margin-left:40px;*margin-top:-24px;}
+
+.textmiddle li{color:#5f5f5f;line-height:24px;}
+.textmiddle li.bq{font-weight:bold;}
+.textmiddle li a{font-weight:100;color:#5f5f5f;}
+.textmiddle li.bq a{margin-right:40px;}
+
+.textmiddle .bq10 p a{margin-right:10px;display:inline-block;}
+.textmiddle li cite,
+.textmiddle li code{color:#999;font-style:normal;font-weight:100;}
+.textmiddle li cite{margin-left:10px;}
+.textmiddle li code{margin-left:0px;}
+.textlist .textmiddle dt a{color:#1886ac}
+.textlist .textmiddle dt a:hover{color:#1886ac}
+
+.alltextlist{border-bottom:1px dashed #e5e5e5;padding:10px 20px;overflow:hidden;margin-top:10px;}
+.alltextleft, .alltextmiddle, .alltextright{height:190px;}
+.alltextlist .alltextleft {float:left;_margin-right:-3px;overflow:hidden;width:96px;padding-top:10px;}
+.alltextlist .alltextmiddle {overflow:hidden;}
+.alltextlist .alltextright {float:right;width:129px;background:#f7f7f7;_margin-left:-3px;}
+
+.alltextleft img{border:1px solid #c7c7c7;width:94px;height:135px;}
+body .alltextright a{color:#666;displaY:block;background:url(../../images/novelSearch.png) no-repeat 0 -497px;width:101px;height:34px;text-align:center;line-height:33px;margin:17px 0 0 14px;font-weight:bold;font-size:14px;}
+.alltextright a:hover{text-decoration:none;background:url(searchon.png) no-repeat 0 -497px;color:#666;}
+.alltextmiddle dl{padding:0 10px;}
+.alltextmiddle dt{font-weight:bold;font-size:14px;margin:5px 0;}
+.alltextmiddle li strong{display:block;float:left;}
+.alltextmiddle li p{margin-left:40px;*margin-top:-24px;}
+
+.alltextmiddle li{color:#5f5f5f;line-height:24px;}
+.alltextmiddle li.bq{font-weight:bold;}
+.alltextmiddle li a{font-weight:100;color:#5f5f5f;}
+.alltextmiddle li.bq a{margin-right:40px;}
+
+.alltextmiddle .bq10 p a{margin-right:10px;display:inline-block;}
+.alltextmiddle li cite,
+.alltextmiddle li code{color:#999;font-style:normal;font-weight:100;}
+.alltextmiddle li cite{margin-left:10px;}
+.alltextmiddle li code{margin-left:0px;}
+.alltextlist .alltextmiddle dt a{color:#1886ac}
+.alltextlist .alltextmiddle dt a:hover{color:#1886ac}
+
+.page{text-align:center;padding:20px 0;color:#666;}
+.page a{color:#666;display:inline-block;background:url(../../images/novelSearch.png) no-repeat left -692px;height:26px;padding-left:1px;}
+.page a span {margin-left:1px;cursor:pointer;color:#666;display:inline-block;background:url(../../images/novelSearch.png) no-repeat right -692px;height:26px;padding:0 10px;line-height:26px;}
+.page a:hover{text-decoration:none;background-position:0 -718px;}
+.page a:hover span{background-position:right -718px;color:#fff;}
+
+.page a.on{background-position:0 -718px;}
+.page a.on span{margin-left:1px;background-position:right -718px;color:#fff;font-weight:bold;}
+
+.page input{vertical-align:middle;border:1px solid #e0e0e0;width:30px;height:23px;line-height:23px;margin:0 3px;padding:0 3px;}
+
+.xgss{background:#f7f7f7;line-height:30px;margin:10px 0;padding:10px 0 0 0;}
+.xgss p{padding:5px 20px 10px 20px;color:#666;}
+.xgss p.line{border-bottom:1px dotted #dedede;}
+.xgss p.line a{color:#f96a0c;}
+.xgss p a{color:#666;font-size:14px;margin:0 10px;display:inline-block;}
+
+.notext{background:#fffde4;border:1px solid #f5d3c6;line-height:30px;text-align:center;padding:10px 0;color:#666;}
+body .r .notext a{color:#f96a0c;margin:0 3px;}
+.notext a:hover{color:#f96a0c;}
+.tstext{background:#f7f7f7;padding:20px;margin-top:10px;color:#666;}
+.tstext a{font-size:14px;margin:0 10px;}
+
+/* ���*/
+a, a:visited {color: #333;text-decoration: none;}
+.allfl{background:url(../../images/novelSearch.png) repeat-x 0 -294px;height:31px;line-height:33px;padding-left:20px;border:1px solid #f5d3c6;border-width:0 1px;color:#666;}
+.allfl .tl{float:left;}
+.allfl strong{font-size:12px;}
+.allfl .tr{float:right;padding-right:10px;}
+.allfl .tr a,
+.allfl .tr span{cursor:pointer;display:inline-block;background:url(../../images/novelSearch.png) no-repeat 0 -744px;height:20px;line-height:20px;overflow:hidden;}
+.allfl .tr a:hover{background:url(searchon.png) no-repeat 0 -744px;}
+.allfl .tr a:hover span{background:url(searchon.png) no-repeat right -744px;}
+.allfl .tr span{background-position:right -744px;padding:0 8px 0 7px;}
+.allzplb p{border:1px solid #f5d3c6;background:#fcf5f0;line-height:32px;padding:0 20px 0 0;margin:-1px 0 5px 0;}
+.allzplb p a{display:inline-block;}
+.allzplb p span{cursor:pointer;margin-left:10px;}
+.zpbq{margin-left:50px;}
+.zpbq a{display:inline-block;}
+.zpbq span{cursor:pointer;margin-left:10px;}
+.zpbq span b{display:inline-block;background:url(../../images/novelSearch.png) no-repeat right -662px;width:7px;height:4px;_background-position:right -657px;margin-left:3px;}
+.zpbq span b.close{background-position:right -662px;_background-position:right -657px;}
+
+body .allfl .tl a{color:#1886ac;margin-left:20px;}
+body .allfl .tr a{background-position:0 -744px;padding-left:3px;margin-top:6px;color:#fff;}
+body .allfl .tr a:hover{text-decoration:none;}
+body .allzplb a.on{color:#f96b07;display:inline-block;border:1px solid #f5d3c6;background:#fcf5f0;border-width:1px 1px 0 1px;padding:0 8px;position:relative;}
+
+.alltable table{width:100%;border:none;border-collapse:collapse;}
+.alltable td{line-height:36px;color:#333;padding:0 10px;text-align:center;}
+.alltable thead td{font-weight:bold;line-height:36px;background:#f7f7f7;}
+
+td.td1{width:28px;}
+td.td2{width:70px;}
+td.td3{text-align:left;width:140px;}
+td.td3 span{display:block;width:140px;overflow:hidden;white-space:nowrap;color:#ccc;}
+tbody td.td3{font-size:14px;}
+td.td4{text-align:left;}
+td.td5{}
+td.td6{}
+tbody td.td7{color:#b5b5b5;}
+td.td8{}
+
+.alltextmiddle font,
+.textmiddle font{font-weight:bold;font-size:12px;}
+.textmiddle dt font{font-size:14px;}
+.alltable td b{vertical-align:middle;display:inline-block;margin-left:3px;padding:0 11px 0 3px;height:36px;overflow:hidden;}
+.alltable td b.qy{background:url(../../images/novelSearch.png) no-repeat 0 -629px;*background:url(search.gif) no-repeat 0 -627px;}
+.alltable td b.vip{background:url(../../images/novelSearch.png) no-repeat 0 -655px;padding:0 11px 0 11px;*background:url(search.gif) no-repeat 0 -654px}
+.alltextmiddle b,
+.textmiddle b{vertical-align:middle;display:inline-block;margin-left:3px;padding:0 11px 0 3px;height:36px;overflow:hidden;}
+.alltextmiddle b.qy,
+.textmiddle b.qy{background:url(../../images/novelSearch.png) no-repeat 0 -629px;*background:url(search.gif) no-repeat 0 -627px;}
+.textmiddle b.vip,
+.alltextmiddle b.vip{background:url(../../images/novelSearch.png) no-repeat 0 -655px;padding:0 11px 0 11px;*background:url(search.gif) no-repeat 0 -654px}
+
+.alltable td.td3 a,
+.alltable td.td6 a{color:#1886ac;}
+
+td.td8 em.fc1{color:#ff5c00;}
+td.td8 em.fc2{color:#008000;}
+td.td8 em.fc3{color:#999999;}
+
+.alltable .bg1{background:#f7f7f7;}
+.alltable .bg2{background:#fff;}
+.alltable .bg3{background:#fcf6f1;}
+
+#cluetip-outer {border:1px solid #f5d3c6;position:relative;background-color:#fff;}
+#cluetip-title {padding-top:3px;padding-right:3px;height:19px;overflow:hidden;}
+#cluetip-close {text-align:right;color:#900;}
+#cluetip-inner {padding:22px 0 0;}
+.cluetip-arrows {background:url(arl.png) no-repeat;_background:url(arl.gif) no-repeat;width:18px;height:50px;position:absolute;left:-17px;_left:-17px;}
+.cluetip-jtip {border:2px solid #ebebeb;border-width:0 2px 2px 0;}
+
+.inner {height:143px;color:#666666;padding:0 10px 5px 18px;overflow:hidden;}
+.inner dt{float:left;margin-right:15px;width:69px;}
+.inner dt img{width:69px;height:100px;border:1px solid #cbcbcb;}
+.inner dd{float:left;width:250px;}
+.inner dd li{line-height:20px;}
+.inner li strong a{color:#1886ac;font-size:12px;}
+.inner .bq10 a{margin-right:5px;}
+.inner .zz a{color:#1886ac;}
+.innerbut{clear:both;height:40px;background:#fcf6f1;padding-top:10px;text-align:center;}
+#cluetip-inner .innerbut a{color:#666;font-weight:bold;display:inline-block;background:url(searchon.png) no-repeat 0 -655px;margin-left:15px;width:91px;height:33px;text-align:center;line-height:33px;}
+#cluetip-inner .innerbut a.ts{color:#fff;background:url(searchon.png) no-repeat 0 -622px;display:inline-block;}
+
+#shangxia{position:absolute;width:25px;margin-top:400px;right:-25px;}
+#shang{cursor:pointer;background:url(../../images/novelSearch.png) -104px -497px no-repeat;width:25px;height:28px;}
+
+#toPage{text-align:center;}
+
+.tl1121 .books{color:#666;}
+.tl1121 .books strong{color:#ff6600;margin:0 5px;}
+.tl1121{float:left;}
+.allfl .tl1121 a{color:#1886ac;margin-left:10px;}
+.tl1121 a:hover{color:#1886ac;}
+
+.tr1121{float:right;padding-right:10px;color:#b5b5b5;}
+.allfl .tr1121 a{color:#ff6600;margin-right:10px;font-weight:bold;}
+.tr1121 a:hover{color:#ff6600;}
+
+.fllist-item .allzplb .tsfl{background:#3a9414;padding:2px 4px 2px 5px;color:#fff;}
+.allzplb .tsfl:hover{text-decoration:none;color:#fff;}

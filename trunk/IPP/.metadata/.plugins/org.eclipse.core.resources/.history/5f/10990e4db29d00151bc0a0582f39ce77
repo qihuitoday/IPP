@@ -1,0 +1,35 @@
+/**
+ * @author qihui
+ * 2009-10-6
+ */
+package com.qihui.ssh.service.user;
+
+import java.util.List;
+
+import com.qihui.ssh.dao.entities.Employee;
+import com.qihui.ssh.dao.user.UserDAO;
+
+public class UserServiceImpl implements UserService {
+
+	UserDAO userDAO;
+
+	/**
+	 * 根据userId 查找User
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	public Employee getUserByUserId(String userId) {
+
+		List<Employee> userList = userDAO.getUserByUserId(userId);
+		if (userList.size() == 1) {
+			return userList.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	public void setUserDAO(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
+}

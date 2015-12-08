@@ -1,0 +1,29 @@
+package com.qihui.ssh.service.site;
+
+import java.util.List;
+
+import com.qihui.ssh.ContextTest;
+import com.qihui.ssh.dao.entities.Region;
+
+public class SiteServiceTest extends ContextTest {
+
+	private static SiteService siteService;
+
+	public void testGetAllProvince() {
+		SiteService siteService = getService();
+		List<Region> provinceList = siteService.getAllProvince();
+		if (provinceList != null) {
+			System.out.println(provinceList.size());
+		} else {
+			System.out.println("provinceList is null!");
+		}
+	}
+
+	private SiteService getService() {
+		if (siteService == null) {
+			return (SiteService) applicationContext.getBean("siteService");
+		} else {
+			return siteService;
+		}
+	}
+}

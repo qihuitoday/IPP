@@ -1,0 +1,10 @@
+package com.qihui.ssh.web.site;
+
+import com.qihui.ssh.web.BaseAction;
+
+public class HelpUIAction extends BaseAction {
+
+	public String execute() throws Exception {
+		return "success";
+	}
+}

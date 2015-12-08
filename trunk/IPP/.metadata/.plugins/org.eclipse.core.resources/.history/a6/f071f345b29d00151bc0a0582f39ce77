@@ -1,0 +1,36 @@
+package com.qihui.ssh.service.sys;
+
+import java.util.Date;
+
+import com.qihui.ssh.dao.entities.Employee;
+import com.qihui.ssh.dao.entities.Role;
+import com.qihui.ssh.dao.sys.SysDAO;
+
+public class SysServiceImpl implements SysService {
+
+	private SysDAO sysDAO;
+
+	/**
+	 * Add employee
+	 */
+	public boolean addEmployee(Employee employee) {
+		employee.setChineseName("");
+		employee.setEnglishName("");
+		Role role = new Role();
+		role.setId(1);
+		employee.setRole(role);// TODO
+		Date createDate = new Date();
+		employee.setCreateTime(createDate);
+		employee.setUpdateTime(createDate);
+		return sysDAO.addEmployee(employee);
+	}
+
+	public SysDAO getSysDAO() {
+		return sysDAO;
+	}
+
+	public void setSysDAO(SysDAO sysDAO) {
+		this.sysDAO = sysDAO;
+	}
+
+}

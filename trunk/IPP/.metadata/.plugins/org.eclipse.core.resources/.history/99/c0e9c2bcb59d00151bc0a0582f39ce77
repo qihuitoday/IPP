@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-2-17 19:38:44 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping default-lazy="false">
+    <class name="com.qihui.ssh.dao.entities.Employee" table="employee" catalog="lvyou">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="role" class="com.qihui.ssh.dao.entities.Role" fetch="select">
+            <column name="RoleID" not-null="true" />
+        </many-to-one>
+        <property name="userName" type="string">
+            <column name="UserName" length="32" not-null="true" />
+        </property>
+        <property name="chineseName" type="string">
+            <column name="ChineseName" length="32" />
+        </property>
+        <property name="englishName" type="string">
+            <column name="EnglishName" length="32" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="32" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="32" not-null="true" />
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="CreateTime" length="0" not-null="true" />
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="UpdateTime" length="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,392 @@
+﻿var varRegisterType = 0; //号码是否以注册
+var inputCount = 0; //输入验证数量
+var time = 120; //短信发送时间
+var timerId = null; //计时器Id
+var submintType = true; //注册类型---用于监听全局
+
+      $(function() {
+        //给与焦点  
+        setFocus("txtInputName");
+        //事件加载
+        eventLoadRegister();
+      });
+
+
+
+      //事件加载
+
+      function eventLoadRegister() {
+
+        $("body").keypress(function(event) {
+          var keycode = event.which;
+          if (keycode == 13) {
+            if (submintType) {
+              formSubmit();
+            }
+          }
+        });
+
+        //注册按钮
+        $("#btnUsersRegister").click(function() {
+          formSubmit();
+        });
+
+
+        //短信发送按钮
+        $("#btnResendSMS").click(function() {
+          validMsg();
+        });
+
+        //提交表单
+        $("#btnInputCheckCodeThenRegister").click(function() {
+          if (isCode()) {
+            //显示加载提示
+          getObj("loadMsg").show();
+		  getObj("li_ok").hide();
+            submitForm();
+          }
+          else {
+            setFocus("txtInputCheckCode"); //给与焦点
+          }
+        }); //end click
+
+        //user check
+        $("#txtInputName").blur(function() {
+          //get username
+          var varUserName = $("#txtInputName").val();
+          if (isRegisterUserName(varUserName)) {
+        	  var varUserNameMsg = $("#userNameMsg");
+        	  varRegisterType = 1;
+              varUserNameMsg.html("帐户可以注册！");
+				varUserNameMsg.attr("class","green_font");
+        	  /*
+            //set attribute
+            var varUrl = baseCGI + "userexist.cgi";
+            var param = {
+              name: varUserName
+            };
+			var varUserNameMsg = $("#userNameMsg");
+            //Get check
+            $.get(varUrl, param, function(data) {
+              //return parameter
+              var returnType = $(data).find("result").text();
+              if (returnType == 0) {
+                varRegisterType = 0;
+          		varUserNameMsg.html("该帐户已经存在！<font class='gray_font'>请输入6-32位字符，可由英文,数字组成</font>");
+				varUserNameMsg.attr("class","red_font");
+              }
+              else {
+                varRegisterType = 1;
+                varUserNameMsg.html("帐户可以注册！");
+				varUserNameMsg.attr("class","green_font");
+              }
+
+            })*/
+          }//end if
+        }); // end blur
+
+        //pass check
+        $("#txtInputPassword").blur(function() {
+          var varPassword = $("#txtInputPassword").val();
+          isPasswd(varPassword);
+        }); // end blur
+
+        //rePass check
+        $("#txtInputRePassword").blur(function() {
+          var varPassword = $("#txtInputPassword").val();
+          var varRePassword = $("#txtInputRePassword").val();
+          if (isPasswd(varPassword)) {
+            isRePasswd(varPassword, varRePassword);
+          }
+        }); // end blur
+
+        //mobile Check
+        $("#txtInputMobile").blur(function() {
+          var varMobile = $("#txtInputMobile").val();
+          isMobil(varMobile);
+        }); // end blur
+
+        //email Check
+        $("#txtInputEmail").blur(function() {
+          var varEmail = $("#txtInputEmail").val();
+          isEmail(varEmail);
+        }); // end blur
+
+        //Ture Check
+		/* 真实姓名
+        $("#txtInputRealName").blur(function() {
+          isTrueName(strTrim("txtInputRealName"));
+        }); // end blur
+		
+        //idCard Check  身份证号
+        $("#txtInputID").blur(function() {
+          isIdCardNo(strTrim("txtInputID"));
+        }); // end blur
+		*/
+      }
+
+
+
+      function submitForm() {
+        var varUrl = baseCGI + "register.cgi";
+        var registerForm = $("#registerForm").serialize();
+
+        $.post(varUrl, registerForm, function(data) {
+          //隐藏加载
+          getObj("loadMsg").hide();
+		  getObj("li_ok").show();
+          var varResult = $(data).find("result").text();
+          if (varResult == 0) {
+            var strHref = location.href;
+            var intPos = strHref.indexOf("?");
+            if (intPos > 0) {
+              var strRight = strHref.substr(intPos + 1);
+              var arrItem = strRight.split("=");
+              window.location.href = decodeURIComponent(arrItem[1]);
+            }
+            else {
+              window.location.href = baseLocation;
+            }
+          }
+          else {
+            alert("系统繁忙，请过会再试！");
+            //setFocus("txtInputCheckCode");
+          }
+        }); //end post
+      }
+
+
+      //短信发送器
+
+      function SMStimer() {
+        if (time == 0) {
+          time = 120;
+          clearInterval(timerId);
+          $("#btnResendSMS").removeAttr("disabled");
+          $("#btnResendSMS").val("未收到短信，重新发送");
+        }
+        else {
+          time--;
+          $("#btnResendSMS").val("未收到短信，重新发送(请等待：" + time + " 秒)");
+        }
+      }
+
+      function validMsg() {
+        var varMobile = $("#txtInputMobile").val();
+        var varUrl = baseCGI + "sendsms.cgi";
+        var param = {
+          mobile: varMobile
+        };
+        $.get(varUrl, param, function(data) {
+          var result = $(data).find("result").text();
+          if (result == 100) {
+            alert("今天系统业务繁忙，请您明天再试!");
+            return;
+          }
+          if (result < 0) {
+            alert("服务器繁忙，请稍后再试！");
+          }
+          $("#btnResendSMS").attr("disabled", "disabled");
+          timerId = window.setInterval("SMStimer()", 1000);
+        }); //end get
+      }
+
+      function formSubmit() {
+        // check form			
+        if (submitCheck()) {
+          submintType = false;
+          toRegester();
+		  //submitForm();
+		  /**
+		  	取消手机号码验证
+		  */
+          //validMsg();
+          //hideShowId("divRegister,divInputCheckCodeThenRegister");
+          //setFocus("txtInputCheckCode");
+		  //getObj("nickName").val(getObj("txtInputName").val());	//赋值 nikeName
+        }
+      }
+      
+      function toRegester(){
+  		document.forms[0].action = "register";
+  		document.forms[0].submit();
+      }
+
+      //check Form
+
+      function submitCheck() {
+        var varName = $("#txtInputName").val();
+        var varPassword = $("#txtInputPassword").val();
+        var varRePassword = $("#txtInputRePassword").val();
+        var varMobile = $("#txtInputMobile").val();
+        //var varEmail = $("#txtInputEmail").val();
+        //var varID = $("#txtInputID").val();
+        //var varCheckCode = $("#txtInputCheckCode").val();
+        //var varRealName = $("#txtInputRealName").val();
+
+        isRegisterUserName(varName);
+        isPasswd(varPassword);
+        isRePasswd(varPassword, varRePassword);
+        isMobil(varMobile);
+        //isEmail(varEmail);
+        //isIdCardNo(varID);
+        //isTrueName(varRealName);
+        //usernameType check										
+        if (varRegisterType == 1 && inputCount > 0) {
+          return true;
+        }
+        return false;
+      }
+
+      function strTrim(ObjName, str) {
+        //getObject
+        var obj = $("#" + ObjName);
+        //getValue
+        var value = obj.val();
+        //trim
+        value = jQuery.trim(value);
+        //set value
+        obj.val(value);
+        return value;
+      }
+
+      //校验登录名：只能输入个以字母开头、可带数字、“_”、“.”的字串
+
+      function isRegisterUserName(username) {
+        var varUserNameMsg = $("#userNameMsg");
+        if (username != "") {
+          var patrn = /^(\w){6,32}$/;
+          if (!patrn.exec(username)) {				
+            varUserNameMsg.html("帐户格式错误！<font class='gray_font'>请输入6-32位字符，可由英文,数字组成</font>");
+			varUserNameMsg.attr("class","red_font");
+            return false;
+          }
+          return true;
+        }
+        else {
+		  varUserNameMsg.attr("class","red_font");
+          varUserNameMsg.html("帐户格式错误！<font class='gray_font'>请输入6-32位字符，可由英文,数字组成</font>");
+          return false;
+        }
+		
+      }
+
+      //校验密码：只能输入6-32位字母、数字、下划线
+
+      function isPasswd(pass) {
+        var varPassMsg = $("#passwordMsg");
+        var patrn = /^(\w){6,32}$/;
+        if (!patrn.exec(pass)) {
+          inputCount = 0;
+		  varPassMsg.attr("class","red_font");
+          varPassMsg.html("密码格式错误！<font class='gray_font'>请输入6-32位字母加数字的组合密码</font>");
+          return false;
+        }
+        else {
+          inputCount++;
+		  varPassMsg.attr("class","green_font");
+          varPassMsg.html("密码格式正确");
+        }
+        return true;
+      }
+
+      //效验确认密码：和密码相同
+
+      function isRePasswd(pass, rePass) {
+        var varRePassMsg = $("#rePasswordMsg");
+        if (pass != "" && pass != null && rePass == pass) {
+          inputCount = 0;
+		  varRePassMsg.attr("class","green_font");
+          varRePassMsg.html("确认密码格式正确");
+        }
+        else {
+          inputCount++;
+		  varRePassMsg.attr("class","red_font");
+          varRePassMsg.html("请再次输入密码");
+        }
+      }
+
+      //校验手机号码：必须以数字开头，除数字外，可含有“-”
+
+      function isMobil(mobile) {
+        var varMobileMsg = $("#mobileMsg");
+        //var patrn=/^[+]{0,1}(\d){1,3}[ ]?([-]?((\d)|[ ]){1,12})+$/;
+        var patrn = /^[0-9]{11}$/;
+        if (!patrn.exec(mobile)) {
+          inputCount = 0;
+		  varMobileMsg.attr("class","red_font");
+          varMobileMsg.html("手机格式错误！<font class='gray_font'>请输入您的手机号码</font>");
+        }
+        else {
+          inputCount++;
+		  varMobileMsg.attr("class","green_font");
+          varMobileMsg.html("手机格式正确！");
+        }
+      }
+
+      //校验Email号码：必须以数字开头，除数字外，可含有“-”
+
+      function isEmail(email) {
+        var varEmailMsg = $("#emailMsg");
+        var patrn = /^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/;
+        if (!patrn.exec(email)) {
+          inputCount = 0;
+		  varEmailMsg.attr("class","red_font");
+          varEmailMsg.html("邮箱格式错误！<font class='gray_font'>请输入您的邮箱地址</font>");
+          return false;
+        }
+        else {
+          inputCount++;
+		  varEmailMsg.attr("class","green_font");
+          varEmailMsg.html("邮箱格式正确！");
+        }
+      }
+
+      //效验身份证:只能输入15或18位
+
+      function isIdCardNo(idCard) {
+        var varIdCardMsg = $("#idCardMsg");
+        var patrn = /(^\d{15}$)|(^\d{17}([0-9]|X)$)/;
+        if (!patrn.exec(idCard)) {
+          inputCount = 0;
+          varIdCardMsg.html("<font color='red'>证件格式错误！</font>请填写您真实的证件号");
+        }
+        else {
+          inputCount++;
+          varIdCardMsg.html("<font color='green'>证件格式正确！</font>");
+        }
+      }
+
+      //校验用户姓名：长度大于0,小于32
+
+      function isTrueName(trueName) {
+        var varTureNameMsg = $("#TrueNameMsg");
+        //var patrn=/^[a-zA-Z]{1,30}$/;		//验证英文
+        //var patrn = /^[\u4e00-\u9fa5]*$/;	//验证中文
+        if (trueName.length > 0 && trueName.length < 32) {
+          inputCount++;
+          varTureNameMsg.html("<font color='green'>姓名格式正确！</font>");
+        }
+        else {
+          inputCount = 0;
+          varTureNameMsg.html("<font color='red'>姓名格式错误！</font>请填写您身份证上的姓名");
+        }
+      }
+
+      //检测验证码
+
+      function isCode() {
+        var varCode = $("#txtInputCheckCode");
+        var varCodeValue = varCode.val();
+        var patrn = /^[0-9]{6}$/;
+        if (!patrn.exec(varCodeValue)) {		
+          $("#spanCodeMsg").html("请输入验证码");
+		  $("#spanCodeMsg").attr("class","red_font");
+          return false;
+        }
+        else {
+          $("#spanCodeMsg").html("");
+		  $("#spanCodeMsg").attr("class","green_font");
+        }
+        return true;
+      }

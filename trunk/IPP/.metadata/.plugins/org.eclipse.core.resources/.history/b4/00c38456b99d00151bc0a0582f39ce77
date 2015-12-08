@@ -1,0 +1,272 @@
+
+//paramenter
+var baseLocation = "http://localhost:8080/qhlvyou/";
+//var baseCGI = baseLocation + "cgi-bin/";
+var baseCGI = baseLocation;
+var varCompany = encodeURIComponent("齐辉科技有限公司");
+var varMinMonery = 1; //最小支付金额
+var varMaxMonery = 5000; //最大支付金额
+var varUserName;
+var varNikeName;
+		
+$(function() {
+	//初始化Header
+    //register_or_login();
+    //公共事件加载
+    commonEventLoad();
+});  
+
+//Common event load
+function commonEventLoad() {
+	//免费注册
+	getObj("btnRegister").click(function() {
+		window.location.href = baseCGI + "registerUI?return_url=" + encodeURIComponent(window.location.href);
+	});
+	//登录
+	getObj("btnLogin").click(function() {
+		window.location.href = baseLocation + "loginUI?return_url=" + encodeURIComponent(window.location.href);
+	});
+	//帮助
+	getObj("btnHelp").click(function() {
+		window.location.href = baseLocation + "helpUI";
+    });
+	//帮助
+	getObj("btnHelp1").click(function() {
+		window.location.href = baseLocation + "helpUI";
+	});
+	//小说
+	getObj("btnNovel").click(function() {
+		window.location.href = baseLocation + "novelIndex";
+	});
+	//Logout
+	getObj("btnLogout").click(function() {
+		window.location.href = baseLocation + "logout";
+	});
+}
+
+//Trim space
+function strTrim(str) {
+	return jQuery.trim(str);
+}
+
+      //返回到登录页面
+
+      function returnHistory() {
+        window.location.href = baseLocation + "login.html?return_url=" + encodeURIComponent(window.location.href);
+      }
+
+      //给与焦点
+
+      function setFocus(id) {
+        getObj(id).focus();
+      }
+
+      //得到对象
+
+      function getObj(id) {
+        return $("#" + id);
+      }
+
+      //隐藏和显示
+      //parament str first=1 隐藏 second = 2 显示  
+
+      function hideShowId(str) {
+        var musterArr = str.split(",");
+        var first = musterArr[0];
+        var second = musterArr[1];
+        if (second == "1" || second == 1) {
+          getObj(first).hide();
+        }
+        else if (second == "2" || second == 2) {
+          getObj(first).show();
+        }
+        else {
+          getObj(first).hide();
+          getObj(second).show();
+        }
+      }
+
+      //帐户登录验证
+
+      function userValid(url) {
+        varUserName = $.cookie("name");
+		//var shareLogin = $.cookie("shared_login");
+		var returnUrl = url || window.location.href;
+        if (varUserName == null || varUserName == "" ) {
+          window.location.href = baseLocation + "login.html?return_url=" + encodeURIComponent(returnUrl);
+          return true;
+        }
+        else {
+			return varUserName;
+        }
+      }
+
+      //添加历史记录
+
+      function HistoryAdd(id, value) {
+		varUserName = $.cookie("name");
+        if (varUserName != "" && varUserName != null) {
+          $.post(baseCGI + "adduseraccount.cgi", {
+            name: varUserName,
+            application_id: id,
+            account: value
+          }, function(data) {
+            var result = $(data).find("result").text();
+            if (result >= 0) {
+              //alert("记录添加成功！");					
+            }
+            else {
+              //alert("记录添加失败！");
+            }
+          }); //end post
+        }
+      }
+
+      //初始化头部
+
+      function iniHead() {
+        var varUrl = window.location.href;
+        if (varUrl == baseLocation) {
+          $('a[href$="index.html"]').parent().addClass("selected");
+          return;
+        }
+        var varHeadAddress = ["index.html", "download.html","buy_pos.html","tenpay_store_info.html","features.html","partner.html"];
+        for (var i = 0; i < varHeadAddress.length; i++) {
+          if (varUrl.indexOf(varHeadAddress[i]) != -1) {
+            $("a[href$='" + varHeadAddress[i] + "']").parent().addClass("selected");
+            break;
+          }
+        }
+
+      }
+	  
+	  function shuake_vip_valid(){
+	  	var vip = $.cookie("vip_leshuake");
+		if(!vip || vip == "" || vip.length == 0){
+			alert("您不是VIP刷客活动的VIP账号，不能参与活动");
+			window.location.href = baseLocation+'my_leshua.html';
+			return;
+		}
+	  }
+
+//登录或者未登录
+function register_or_login() {
+    varUserName = $.cookie("name");
+	varNikeName = $.cookie("nick_name");
+	//var shareLogin = $.cookie("shared_login");
+    if (varUserName == null || varUserName == "" ) {
+    	//not login
+    	$("#liLogin").show();
+      	$("#liLogout").hide();
+    } else {
+    	//login
+      	$("#liLogin").hide();
+      	$("#liLogout").show();
+      	$("#spanUserName").text(varNikeName || varUserName);
+    }
+}
+	  	  	  
+//获取链接参数
+function getParm(key,url) {
+	var url = url || window.location.href;
+    var reg = new RegExp("(^|&|\\?|#)"+ key+ "=([^&#]*)(&|\x24|#)","");
+    var match = url.match(reg);
+    if (match) {
+        return match[2];
+    }   
+    return null;
+};
+
+//当是qq共享登录过来的用户则隐藏"修改密码"	  
+function checkQqPassHideModifyPwd(){
+  var username = $.cookie("name");
+  if(username && username!='' && username.indexOf('qq_')!=0){
+	  $('#modifyPwd').show();	  
+  }
+}	
+
+function getReturnUrl(){
+    var ret='',returnUrl = getParm('return_url');
+    returnUrl = decodeURIComponent(returnUrl);        
+    if(returnUrl && returnUrl!='' && returnUrl.indexOf(baseLocation)==0 && returnUrl.indexOf('login.html')==-1 ){
+       ret = returnUrl;
+    }             
+    return ret;
+}
+//返回是否是qq共享登录帐号
+function isQqShareLogin(username){
+  var username = username || $.cookie("name");
+  if(username && username!='' && username.indexOf('qq_')==0 && username.length==35 ){
+    return true;
+  }
+  return false;
+}
+
+function ajaxInit(){
+  $loadMask = $('<div><img src="web/images/loader.gif" /><br>加载中...</div>');  
+    $loadMask.css({
+        'position': 'absolute',
+        'top': '0',
+        'left': '0',
+        'width': '80px',
+        'height': '65px',
+        'border-radius': '5px',
+        'padding-top': '20px',
+        'background': '#fff',
+        'border': '1px solid #fff',
+        'border-radius': '3px',
+        'color': '#333',        
+        'z-index': '3000',
+        'text-align': 'center',
+        'font-size': '14px',
+        'color:':'#333'
+    }).prependTo(document.body).hide();
+    $win = $(window);
+            var x = (($win.width() - $loadMask.outerWidth()) / 2) + $win.scrollLeft() + "px";
+            var y = (($win.height() - $loadMask.outerHeight()) / 2) + $win.scrollTop() + "px";
+            $loadMask.css({
+                left: x,
+                top: y
+            }).hide();
+   $.ajaxSetup({
+        timeout: 3000,
+        beforeSend: function(){
+            $win = $(window);
+            var x = (($win.width() - $loadMask.outerWidth()) / 2) + $win.scrollLeft() + "px";
+            var y = (($win.height() - $loadMask.outerHeight()) / 2) + $win.scrollTop() + "px";
+            $loadMask.css({
+                left: x,
+                top: y
+            }).show();
+        },
+        complete: function(){
+            $loadMask.hide();
+        },
+        error : function(){
+            alert('出错了，稍等请重试');
+        }
+    });
+}
+
+function handerAjaxError(){
+  var oHead = document.getElementsByTagName('HEAD').item(0); 
+  var oScript= document.createElement("script"); 
+  oScript.type = "text/javascript"; 
+  oScript.src="http://s25.cnzz.com/stat.php?id=4593237&web_id=4593237"; 
+  oHead.appendChild( oScript);
+}
+
+function getTodayDate(){
+  var todayDate = new Date();  
+  var _year = todayDate.getFullYear();
+  var _month = todayDate.getMonth()+1;
+  if( _month<10){
+    _month = '0'+_month;
+  }
+  var _date = todayDate.getDate();
+  if( _date<10){
+    _date = '0'+_date;
+  }  
+  var _today = _year+'-'+_month+'-'+_date;  
+  return _today;
+}

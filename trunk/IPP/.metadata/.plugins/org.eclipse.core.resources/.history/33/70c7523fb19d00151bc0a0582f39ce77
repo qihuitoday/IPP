@@ -1,0 +1,44 @@
+package com.qihui.ssh.service.novel;
+
+import com.qihui.ssh.dao.entities.Novelchapter;
+
+public class NovelChapterDetailVO {
+
+	private Integer novelID;
+	private Integer prevNovelChapterID;
+	private Integer nextnovelChapterID;
+	private Novelchapter novelChapter;
+
+	public Integer getPrevNovelChapterID() {
+		return prevNovelChapterID;
+	}
+
+	public void setPrevNovelChapterID(Integer prevNovelChapterID) {
+		this.prevNovelChapterID = prevNovelChapterID;
+	}
+
+
+	public Novelchapter getNovelChapter() {
+		return novelChapter;
+	}
+
+	public void setNovelChapter(Novelchapter novelChapter) {
+		this.novelChapter = novelChapter;
+	}
+
+	public Integer getNovelID() {
+		return novelID;
+	}
+
+	public void setNovelID(Integer novelID) {
+		this.novelID = novelID;
+	}
+
+	public Integer getNextnovelChapterID() {
+		return nextnovelChapterID;
+	}
+
+	public void setNextnovelChapterID(Integer nextnovelChapterID) {
+		this.nextnovelChapterID = nextnovelChapterID;
+	}
+}

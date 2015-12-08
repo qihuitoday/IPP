@@ -1,0 +1,71 @@
+
+.post_title {
+color: #454545;
+font-weight: 400;
+margin-top: 7px;
+margin-bottom: 7px;
+font-size: 14px;
+}
+
+.post_title_small {
+font-size: 12px;
+color: #959595;
+}
+
+.post_text_title {
+height: 40px;
+width: 649px;
+margin-top: 5px;
+padding-left: 10px; /*左内边距*/
+font-size: 14px;
+color: #454545;
+}
+
+.publish-bd {
+padding-top: 10px;
+padding-bottom: 20px;
+}
+
+.publish-bd .publish-editor {
+border: 0px solid #C7C7C7;
+margin-bottom: 10px;
+}
+
+.publish-bd .publish-editor-textarea {
+position: relative;
+height: 198px;
+padding: 0px 12px 0px 0px;
+}
+
+.publish-bd .publish-editor-textarea textarea {
+height: 162px;
+width: 650px;
+border: 1;
+resize: none;
+font-size: 14px;
+padding-left: 10px; /*左内边距*/
+line-height: 24px;
+overflow-y: auto;
+}
+
+.btns-cont, .publish-ft .share-list {
+float: right;
+}
+
+.btn-default-32:link, .btn-default-32:visited, .btn-default-32:hover, .btn-default-32:active {
+background-position: 0 -577px;
+color: #B3B3B3;
+}
+
+.btn-default-32 span, .btn-default-32:link span, .btn-default-32:visited span, .btn-default-32:hover span, .btn-default-32:active span {
+cursor: default;
+height: 20px;
+line-height: 20px;
+padding: 6px 20px 6px 18px;
+_padding: 6px 20px 4px 18px;
+background: url(images/btn/bg_btn.png) right -577px no-repeat #F0F0F0;
+}
+
+.lvyouheight {
+height: 400px;
+}

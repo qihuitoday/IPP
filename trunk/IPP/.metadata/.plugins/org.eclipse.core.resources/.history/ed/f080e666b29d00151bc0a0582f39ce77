@@ -1,0 +1,24 @@
+package com.qihui.ssh.web.site;
+
+import com.qihui.ssh.service.user.UserService;
+import com.qihui.ssh.web.BaseAction;
+
+/**
+ * @author QiHui
+ * 
+ */
+public class MengYeAction extends BaseAction {
+
+	private static final long serialVersionUID = -3530272199564844198L;
+	UserService userService;
+
+	public String execute() throws Exception {
+		System.out.println("Lvyou");
+		return "success";
+	}
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
+}

@@ -1,0 +1,194 @@
+/*
+***************************
+*  17k chapter javascript *
+*  dependent:             *
+*  	  17k.js              *
+*  	  17k.header.small.js *
+*  	  17k.login.js 		  *
+*  version:1.0            *
+*  coder:BennyTian        *
+*  date:2011/04/18        *
+***************************
+*/
+if (!window.K17) {
+	window.K17 = {};
+	window.K17.chapter = {};
+} else if (!window.K17.chapter) {
+	window.K17.chapter = {};
+}
+window._ = window.K17;
+
+K17.chapter.params = null;
+K17.chapter.initParams = function(json){
+	if(K17.isUndefined(json) || K17.isEmpty(json)|| !$.isPlainObject(json) || K17.isUndefined(json.bookId)||K17.isUndefined(json.chapterId)||K17.isUndefined(json.previousId) || K17.isUndefined(json.nextId)){
+		alert("params Error...");
+		flag = false;
+	}
+	K17.chapter.params = json;
+};
+
+
+$(function(evt){
+	if(K17.isUndefined(K17.chapter.params) || K17.isEmpty(K17.chapter.params)|| !$.isPlainObject(K17.chapter.params)){
+		alert("script init error. please invoke K17.chapter.initParams method...");
+	}
+	K17.chapter.docKeyDown();
+	
+	
+	//var _target = evt ? evt.target : event.srcElement;
+	//var _id = _target.id;
+	
+	//var _id = document.activeElement.id;
+	//alert(_id);
+
+	K17.chapter.popUpMenu();
+	
+	K17.chapter.initUserPreference();
+	//$.get("/-addToHistroy.action?bookId="+K17.chapter.params.bookId);	
+});
+
+K17.chapter.baidu = function(bookName){
+	window.open("http://www.baidu.com/s?ie=utf-8&wd="+encodeURIComponent("site:www.17k.com "+bookName)+"&tn=SE_pshl0005_5tyhptku","_blank");
+};
+
+K17.chapter.prev = function(){
+	if(K17.isEmpty(K17.chapter.params.previousId)|| K17.chapter.params.previousId-0<=0){
+		alert("当前已经是第一章...");
+		return false;
+	}
+	window.location="/chapter/"+K17.chapter.params.bookId+"/"+K17.chapter.params.previousId+".html";
+};
+
+K17.chapter.next = function(){
+	if(K17.isEmpty( K17.chapter.params.nextId) || K17.chapter.params.nextId-0<=0){
+		window.location.href = "/book/bookLastPage.action?bookId="+K17.chapter.params.bookId;
+		return false;
+	}
+	window.location.href = "/chapter/"+K17.chapter.params.bookId+"/"+K17.chapter.params.nextId+".html";
+};
+
+K17.chapter.list = function(){
+	window.location.href = "/list/"+K17.chapter.params.bookId+".html";
+};
+
+K17.chapter.book = function(){
+	window.location.href = "/book/"+K17.chapter.params.bookId+".html";
+};
+
+K17.chapter.fullRead = function(){
+	if(K17.isLogined()){
+		window.open("http://www.17k.com/html/showVolume.htm?bid="+K17.chapter.params.bookId,'_blank');
+	}else{
+		K17.login.form("K17.sheader.setLoginedUserInfo();K17.chapter.fullRead();");
+	}
+};
+
+K17.chapter.fullScreen = function(hander,readBox,sideBox,width){
+	$("#"+hander).live("click",function(){
+		if($("#"+hander).html().indexOf("全屏阅读")!=-1){
+			$("#"+hander).html("显示侧栏");
+			$("#"+sideBox).hide();
+			$("#"+readBox).css({"width":"100%"});
+			K17.cookie("chapter_side","hide",{"expires":30});
+		}else{
+			$("#"+hander).html("全屏阅读");
+			$("#"+sideBox).show();
+			$("#"+readBox).css({"width":width});
+			K17.cookie("chapter_side","show",{"expires":30});
+		}
+	});
+};
+//收藏
+K17.chapter.bookShelf = function(){
+	if(K17.isLogined()){
+		var url="/bookShelf/bookshelf.action";
+		$.post(url,{"bookId":K17.chapter.params.bookId,"chapterId":K17.chapter.params.chapterId},function(data){
+			if (data.status==0){
+				alert("收藏成功！");
+			}else if (data.status==1){
+				alert("收藏失败。");
+			}else if (data.status==2){
+				alert("书签加入成功！");
+			}else if (data.status==3){
+				alert("本书已经收藏过了！");
+		    }else{
+		    	alert("error...");
+		    } 
+		},'json');
+	}else{
+		K17.login.form("K17.sheader.setLoginedUserInfo();K17.chapter.bookShelf();");
+	}
+};
+
+//右键菜单,依赖 popUpMenu.js/
+K17.chapter.popUpMenu = function(evt){
+ 	
+		var deskTop=[
+		         	{text:'上一章',cmd:function(){setTimeout(K17.chapter.prev);}},
+		         	{text:'下一章',cmd:function(){setTimeout(K17.chapter.next);}},
+		         	{line:true},
+		         	{text:'目录',ico:'http://img.17k.com/images/readbook/ico_list.gif',cmd:function(){setTimeout(K17.chapter.list);}},
+		         	{text:'返回书主页',cmd:function(){setTimeout(K17.chapter.book);}},
+		         	{text:'全文阅读',cmd:function(){K17.chapter.fullRead();}},
+		         	{line:true},
+		         	{text:'加书签',ico:'http://img.17k.com/images/readbook/fav_16.png',cmd:function(){K17.chapter.bookShelf();}},
+		         	{text:'投鲜花',ico:'http://img.17k.com/images/readbook/icon_flower.gif',cmd:function(){$("#postFlower").click();}},
+		        	{text:'投贵宾票',ico:'http://img.17k.com/images/readbook/icon_ticket.gif',cmd:function(){$("#postVipVote").click();}},
+		        	{text:'发表评论',ico:'',cmd:function(){K17.book.comment();}}
+		         ];
+		var m=new popUpMenu(deskTop);
+		menuAdmin.init().add(document.body,m);
+	
+};
+//添加键盘操作
+K17.chapter.docKeyDown = function(){
+	$(document).keydown(function(e){
+		  var _target = e ? e.target : event.srcElement ;//在发表框里屏蔽上下左右键和空格键
+		  var _id = _target.id;
+		  if( _id != "wordCount" ){
+			  if (e.keyCode==37){
+				  K17.chapter.prev();
+			  }
+			  if (e.keyCode==39){
+				  K17.chapter.next();
+			  }
+		  }
+	});
+};
+
+K17.chapter.setFontSize = function(parentId,chapterId){
+	$("#"+parentId + ">span").live("click",function(){
+		$("#"+chapterId).css({"fontSize":$(this).attr("v")});
+		K17.cookie("chapter_font_size",$("#"+chapterId).css("fontSize"),{"expires":30});
+	});
+};
+
+K17.chapter.setBgColor = function(parentId,chapterId){
+	$("#"+parentId + ">span").live("click",function(){
+		$("#"+chapterId).css({"backgroundColor":$(this).attr("v")});
+		K17.cookie("chapter_bg_color",$("#"+chapterId).css("backgroundColor"),{"expires":30});
+	});
+};
+
+K17.chapter.initUserPreference = function(){
+	var fontBgColor = K17.cookie("chapter_bg_color");
+	var fontSize = K17.cookie("chapter_font_size");
+	var side = K17.cookie("chapter_side");
+	if(!K17.isEmpty(fontSize)){
+		$("#chapterContent").css({"fontSize":fontSize});
+	}
+	if(!K17.isEmpty(fontBgColor)){
+		$("#readArea").css({"backgroundColor":fontBgColor});
+	}
+	if(!K17.isEmpty(side)){
+		if(side=="show"){
+			$("#side").html("全屏阅读");
+			$("#rightSide").show();
+			$("#readAreaBox").css({"width":"710px"});
+		}else{
+			$("#side").html("显示侧栏");
+			$("#rightSide").hide();
+			$("#readAreaBox").css({"width":"100%"});
+		}
+	}
+};

@@ -1,0 +1,90 @@
+package com.qihui.ssh.service.novel;
+
+import java.util.Date;
+import java.util.List;
+
+import com.qihui.ssh.common.util.Util;
+import com.qihui.ssh.dao.entities.Codedvalue;
+import com.qihui.ssh.dao.entities.Novel;
+import com.qihui.ssh.dao.entities.Novelchapter;
+import com.qihui.ssh.dao.novel.NovelDAO;
+
+public class NovelServiceImpl implements NovelService {
+
+	private NovelDAO novelDAO;
+
+	public List<Novel> getAllNovel() {
+		return novelDAO.getAllNovel();
+	}
+
+	public Novelchapter getNovelChapterByID(Integer ID) {
+		Novelchapter novelChapter = (Novelchapter) novelDAO.loadPOJO(Novelchapter.class, ID);
+		novelChapter.setChapterText(Util.replaceRNToBR(novelChapter.getChapterText()));
+		return novelChapter;
+	}
+
+	public NovelChapterDetailVO getNovelChapterDetailVOByID(Integer ID) {
+		NovelChapterDetailVO novelChapterDetailVO = new NovelChapterDetailVO();
+		Novelchapter novelChapter = this.getNovelChapterByID(ID);
+		novelChapter.setChapterText(novelChapter.getChapterText().replaceAll("<br><br><br><br>", "<br><br>"));
+		novelChapterDetailVO.setNovelChapter(novelChapter);
+		novelChapterDetailVO.setNovelID(novelChapter.getNovel().getId());
+		if (novelChapter.getChapterId() > 1) {
+			Novelchapter preNovelchapter = this.getNovelChapterByNovelChapterID(novelChapter.getNovel().getId(), novelChapter.getChapterId() - 1);
+			novelChapterDetailVO.setPrevNovelChapterID(preNovelchapter.getId());
+		}
+		Novelchapter nextNovelchapter = this.getNovelChapterByNovelChapterID(novelChapter.getNovel().getId(), novelChapter.getChapterId() + 1);
+		if (nextNovelchapter != null) {
+			novelChapterDetailVO.setNextnovelChapterID(nextNovelchapter.getId());
+		}
+		return novelChapterDetailVO;
+	}
+
+	public Novelchapter getNovelChapterByNovelChapterID(Integer novelID, Integer chapterID) {
+		return novelDAO.getNovelChapterByNovelChapterID(novelID, chapterID);
+	}
+
+	public Novel getNovelByID(Integer novelID) {
+		return (Novel) novelDAO.loadPOJO(Novel.class, novelID);
+	}
+
+	public List<Novelchapter> getNovelChapterByNovelID(Integer novelID) {
+		return novelDAO.getNovelChapterByNovelID(novelID);
+	}
+
+	public List<Novelchapter> getNovelChapterStartByNovelID(Integer novelID) {
+		return novelDAO.getNovelChapterStartByNovelID(novelID);
+	}
+
+	public List<Novelchapter> getNovelChapterMainBodyByNovelID(Integer novelID) {
+		return novelDAO.getNovelChapterMainBodyByNovelID(novelID);
+	}
+
+	public List<Novelchapter> getNovelChapterEndByNovelID(Integer novelID) {
+		return novelDAO.getNovelChapterEndByNovelID(novelID);
+	}
+
+	public void createNovelChapter(Novelchapter novelchapter, Novel novel, int codedvalueID) {
+		novelchapter.setNovel(novel);
+		novelchapter.setEmployeeByCreateId(novel.getEmployeeByAuthor());
+		novelchapter.setEmployeeByModifyId(novel.getEmployeeByAuthor());
+		Codedvalue codedvalue = new Codedvalue();
+		codedvalue.setId(codedvalueID);
+		novelchapter.setCodedvalue(codedvalue);
+		if (novel.getNovelchapter() != null) {
+			novelchapter.setChapterId(novel.getNovelchapter().getChapterId() + 1);
+		} else {
+			novelchapter.setChapterId(1);
+		}
+		novelchapter.setCreateDate(new Date());
+		novelchapter.setLastModifyDate(new Date());
+		novelDAO.createPOJO(novelchapter);
+		novel.setNovelchapter(novelchapter);
+		novelDAO.updatePOJO(novel);
+	}
+
+	public void setNovelDAO(NovelDAO novelDAO) {
+		this.novelDAO = novelDAO;
+	}
+
+}

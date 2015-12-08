@@ -1,0 +1,166 @@
+<jsp:include page="novelTop.jsp" ></jsp:include>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+
+<title>小说列表</title>
+<script type="text/javascript">
+	
+	function toBook(novelID){
+		var form = document.myForm;
+	    setAllDisabled(form);
+	    $("#novelID").val(novelID);
+	    form.action = "novelBook";
+	    form.submit();
+	}
+</script>
+</head>
+
+<body>                                    
+<form action="novelIndex" name="myForm" method="post"> 
+<jsp:include page="novelHeader.jsp" ></jsp:include>
+<div class="main searchjg">
+	<div class="allfl">
+		<span class="tl1121">
+		   <em class="books">12hao主站有<strong>1</strong>部作品</em>
+		</span>
+		<span class="tr1121">
+		    12hao全站共有1部作品
+		</span>  
+	</div>
+	<div class="fllist" style="display: block;">
+		<div class="fllist-item">
+	        <dl>
+	        <dt>作品类别：</dt>
+	        <dd class="allzplb">
+	        	<a href="http://all.17k.com/all/" class="fb">全部</a>
+	        	<a href="http://all.17k.com/all/xuanhuan/">玄幻</a>
+	        	<a href="http://all.17k.com/all/qihuan/">奇幻</a>
+	        	<a href="http://all.17k.com/all/xianxia/">仙侠</a>
+	        	<a href="http://all.17k.com/all/wuxia/">武侠</a>
+	        	<a href="http://all.17k.com/all/youxi/">游戏</a>
+	        	<a href="http://all.17k.com/all/jingji/">竞技</a>
+	        	<a href="http://all.17k.com/all/lishi/">历史</a>
+	        	<a href="http://all.17k.com/all/junshi/">军事</a>
+	        	<a href="http://all.17k.com/all/kehuan/">科幻</a>
+	        	<a href="http://all.17k.com/all/jingsong/">惊悚</a>
+	        	<a href="http://all.17k.com/all/dushi/">都市</a>
+	        	<a href="http://all.17k.com/all/tongren/">同人</a>
+	        	<a href="http://all.17k.com/mm/" class="tsfl">女生</a>
+	        </dd>
+	        </dl>
+	    </div>
+		<div class="fllist-item">
+	        <dl>
+	        <dt>作品字数：</dt>                   
+	        <dd>
+	            <a href="./小说书库,最好看的小说书库-17k小说网_files/小说书库,最好看的小说书库-17k小说网.htm" class="fb">全部</a>
+	            <a href="http://all.17k.com/all/1_0__0__1.html">30万以下</a>
+	            <a href="http://all.17k.com/all/2_0__0__1.html">30万-50万</a>
+	            <a href="http://all.17k.com/all/3_0__0__1.html">50万-100万</a>
+	            <a href="http://all.17k.com/all/4_0__0__1.html">100万-200万</a>
+	            <a href="http://all.17k.com/all/5_0__0__1.html">200万以上</a>
+	       </dd>
+	       </dl>
+	   	</div>
+		<div class="fllist-item">
+        	<dl>
+            <dt>写作进度：</dt>
+            <dd>
+      	    	<a href="./小说书库,最好看的小说书库-17k小说网_files/小说书库,最好看的小说书库-17k小说网.htm" class="fb">全部</a>
+                <a href="http://all.17k.com/all/0_1__0__1.html">连载中</a>
+                <a href="http://all.17k.com/all/0_2__0__1.html">已完本</a>
+			</dd>
+            </dl>
+		</div>
+		<div class="fllist-item">
+	        <dl>
+	        <dt>排序方式：</dt>
+	        <dd>
+	            <a href="./小说书库,最好看的小说书库-17k小说网_files/小说书库,最好看的小说书库-17k小说网.htm" class="fb">默认</a>
+	            <a href="http://all.17k.com/all/0_0_ws_0__1.html">总字数</a>
+	            <a href="http://all.17k.com/all/0_0_wc_0__1.html">周点击</a>
+	            <a href="http://all.17k.com/all/0_0_mc_0__1.html">月点击</a>
+	            <a href="http://all.17k.com/all/0_0_sc_0__1.html">总点击</a>
+	            <a href="http://all.17k.com/all/0_0_fw_0__1.html">周收藏</a>
+	            <a href="http://all.17k.com/all/0_0_fm_0__1.html">月收藏</a>
+	            <a href="http://all.17k.com/all/0_0_fs_0__1.html">总收藏</a>
+	        </dd>
+	        </dl>
+	    </div>
+		<div class="fllist-item">
+	        <dl>
+	        <dt>作品状态：</dt>
+	        <dd>
+	        	<a href="./小说书库,最好看的小说书库-17k小说网_files/小说书库,最好看的小说书库-17k小说网.htm" class="fb">不限</a>
+	        	<a href="http://all.17k.com/all/0_0__1__1.html">只看免费</a>
+	        	<a href="http://all.17k.com/all/0_0__2__1.html">只看VIP</a>
+	        </dd>
+	        </dl>
+	    </div>
+	</div>
+	<div class="search-list">
+		<div class="listtit">
+		    <div class="titl">
+		        <strong>每页显示30部小说 — 默认按更新时间排序</strong>
+		    </div>
+		    <div class="titr titbut">
+				<a href="http://all.17k.com/all/0_0__0_1_1.html" class="qh"><span>切换到图文</span></a>
+		    </div>
+		</div>
+		<div class="alltable">
+			<script>
+				$(function(){
+					$("table tr:nth-child(even)").addClass("bg2");
+					$("table tr:nth-child(odd)").addClass("bg1");
+					$("table tr").hover(function(){
+						this.temp = $(this).attr("class");
+						$(this).removeClass().addClass("bg3");
+					},function(){
+						$(this).removeClass().addClass(this.temp);
+					});
+				});
+			</script>
+			<table>
+			    <thead>
+			    	<tr class="bg1">
+			            <td class="td1">序号</td><td class="td2">类别</td><td class="td3">书名</td>
+			            <td class="td4">最新章节</td><td class="td5">字数</td><td class="td6">作者</td>
+			            <td class="td7">更新时间</td><td class="td8">状态</td>
+			         </tr>
+			    </thead>
+			    <tbody>
+			    	<tr style="display: none;" class="bg1">
+			        	<td class="td1"></td>
+			            <td class="td2"></td>
+			            <td class="td3"><a class="jt" rel="#" href="http://all.17k.com/all/0_0__0__1.html#" title="国士无双">国士无双</a></td>
+			            <td class="td4"></td>
+			            <td class="td5"></td>
+			            <td class="td6"></td>
+			            <td class="td7"></td>
+			            <td class="td8"></td>            
+			        </tr>	
+			        
+			        <s:iterator value="novelList" var="nl">  
+				    	<tr class="bg1">
+				        	<td class="td1"><s:property value="#nl.id"/></td>
+				            <td class="td2">[<s:property value="#nl.codedvalue.value"/>]</td>
+				            <td class="td3"><s:a href="novelBook?novelID=%{#nl.id}"><s:property value="#nl.novelName"/></s:a></td>
+				            <td class="td4">第<s:property value="#nl.novelchapter.chapterId"/>章：<s:property value="#nl.novelchapter.chapterName"/></td>
+				            <td class="td5"><s:property value="#nl.wordsNumber"/></td>
+				            <td class="td6"><s:property value="#nl.employeeByAuthor.chineseName"/></td>
+				            <td class="td7"><s:date name="#nl.lastModifyDate" format="yyyy-MM-dd HH:mm" /></td>
+				            <td class="td8"><em class="fc2">连载</em></td>            
+				        </tr>
+					</s:iterator>
+			    </tbody>
+			</table>
+		</div>
+		<div class="page">
+	 		<a href="./小说书库,最好看的小说书库-17k小说网_files/小说书库,最好看的小说书库-17k小说网.htm" class="on"><span>1</span></a>  <a href="http://all.17k.com/all/0_0__0__2.html"><span>2</span></a>  <a href="http://all.17k.com/all/0_0__0__3.html"><span>3</span></a>  <a href="http://all.17k.com/all/0_0__0__4.html"><span>4</span></a>  <a href="http://all.17k.com/all/0_0__0__5.html"><span>5</span></a>  <a href="http://all.17k.com/all/0_0__0__6.html"><span>6</span></a>  <a href="http://all.17k.com/all/0_0__0__7.html"><span>7</span></a>  <a href="http://all.17k.com/all/0_0__0__8.html"><span>8</span></a>  <a href="http://all.17k.com/all/0_0__0__9.html"><span>9</span></a>  <a href="http://all.17k.com/all/0_0__0__10.html"><span>10</span></a> ...<a href="http://all.17k.com/all/0_0__0__2.html"><span>下一页</span></a> 共6217页                
+	                                                 转到第<input name="toPage" id="toPage" type="text">页 
+			<a href="javascript:;" onclick=""><span>跳转</span></a>
+		</div>                
+	</div>
+</div>
+</form>
+</body>

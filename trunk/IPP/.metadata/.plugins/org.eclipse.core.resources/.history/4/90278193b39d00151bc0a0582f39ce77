@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="xdoclet-build" default="generate-mapping" basedir="../../">
+    
+    <property file="res/build/build.properties"/>
+
+    <path id="xdoclet.class.path">
+            <fileset dir="${project.lib.dir}">
+                <include name="*.jar"/>
+            </fileset>
+            <fileset dir="${xdoclet.lib.dir}">
+                <include name="*.jar"/>
+            </fileset>
+    </path>
+    	
+    <target name="generate-mapping"  description="生成Hibernate映射文件">
+        <taskdef name="xdoclet"
+                 classname="org.xdoclet.ant.XDocletTask"
+                 classpathref="xdoclet.class.path"/>
+        <xdoclet>
+            <!-- defines the file handled by xdoclet2 -->
+            <fileset dir="${project.src.dir}">
+                <include name="com/mmm/china/cdes/dao/entities/*.java"/>
+            </fileset>
+            <!-- defines the processing of a plugin -->
+            <component
+                classname="org.xdoclet.plugin.hibernate.HibernateMappingPlugin"
+                destdir="${project.src.dir}"
+                version="3.0"
+                encoding="UTF-8"/>
+        </xdoclet>
+    </target>
+
+	<target name="generate-configuration" description="生成Hibernate配置文件">
+		<taskdef name="xdoclet"
+		         classname="org.xdoclet.ant.XDocletTask"
+		         classpathref="xdoclet.class.path"/>
+	    <xdoclet>
+	    	<fileset dir="${project.src.dir}">
+	            <include name="com/mmm/china/cdes/dao/entities/*.java"/>
+	    	</fileset>
+	        <component
+	            classname="org.xdoclet.plugin.hibernate.HibernateConfigPlugin"
+	     	    dialect="${hibernate.cfg.dialect}"
+	    	    jdbcdriver="${hibernate.cfg.driver}"
+	    	    jdbcusername="${hibernate.cfg.username}"
+	    	    jdbcpassword="${hibernate.cfg.password}"
+	    	    jdbcurl="${hibernate.cfg.jdbcurl}"
+	        	showsql="${hibernate.cfg.showsql}"
+	    	    destdir="${project.res.dir}"
+	    		version="3.0"
+	        	encoding="UTF-8"/>
+	    </xdoclet>
+	</target>
+
+    
+</project>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-2-17 19:38:44 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping default-lazy="false">
+    <class name="com.qihui.ssh.dao.entities.Role" table="role" catalog="lvyou">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="Name" length="32" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="Description" length="100" not-null="true" />
+        </property>
+        <set name="employees" table="employee" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RoleID" not-null="true" />
+            </key>
+            <one-to-many class="com.qihui.ssh.dao.entities.Employee" />
+        </set>
+    </class>
+</hibernate-mapping>

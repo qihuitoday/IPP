@@ -1,0 +1,47 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<jsp:include page="../common/top.jsp" ></jsp:include>
+<script type="text/javascript" src="etc/js/loginlvyou.js"></script>
+<script type="text/javascript" src="etc/js/encryption.js"></script>
+<title>IPP</title>
+<script type="text/javascript">
+$(function() {
+	checkSuccess();
+});
+</script>
+</head>
+<body>
+<form action="login" method="post">
+<div class="wrap">
+    <jsp:include page="../common/header.jsp" ></jsp:include>
+    <div class="main" style=" padding-top:0px;">
+      	<div class="ny_title">Login</div>
+      	<div class="main_content">
+        	<table width="600" border="0" cellspacing="10" style=" margin:auto;" class="table_style2">
+         	<tbody>
+         		<tr>
+            		<th width="19%" align="right"><span class="red_font">*&nbsp;</span>帐户：</th>
+            		<td colspan="2"><input id="txtInputName" name="userName" type="text" class="inputstyle1">
+              			<span id="userNameMsg" class="gray_font">&nbsp;&nbsp;请输入您的帐户</span>
+              		</td>
+          		</tr>
+	          	<tr>
+	            	<th align="right"> <span class="red_font">*&nbsp;</span>密码：</th>
+	            	<td colspan="2"><input id="txtInputPassword" name="password" type="password" class="inputstyle1">
+	              		<span id="passwordMsg" class="gray_font">&nbsp;&nbsp;请输入您的密码 </span></td>
+	          	</tr>
+          		<tr>
+            		<td>&nbsp;</td>
+            		<td colspan="2">
+            			<a href="#" id="btnLoginUser" onfocus="this.blur();"><img src="etc/images/login_btn.png" alt="" width="185" height="40"></a>&nbsp;&nbsp;
+            			<a href="#" id="aGetPass" class="link_style_blue">忘记密码？</a>
+            		</td>
+         	 	</tr>
+        	</tbody>
+        	</table>
+      	</div>
+    </div>
+    <jsp:include page="../common/footer.jsp" ></jsp:include>
+</div>
+</form>
+</body>
+</html>

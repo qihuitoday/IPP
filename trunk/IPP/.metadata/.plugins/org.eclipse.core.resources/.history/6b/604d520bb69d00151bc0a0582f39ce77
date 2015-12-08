@@ -1,0 +1,9 @@
+package com.qihui.ssh.service.sys;
+
+import com.qihui.ssh.dao.entities.Employee;
+
+public interface SysService {
+	
+	public boolean addEmployee(Employee employee);
+
+}
