@@ -1,7 +1,0 @@
-package com.qihui.ssh.dao.entities;
-
-import java.io.Serializable;
-
-public abstract class BasePOJO implements Serializable {
-
-}

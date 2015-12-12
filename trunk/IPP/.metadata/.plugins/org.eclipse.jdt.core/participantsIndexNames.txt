@@ -1,9 +1,0 @@
-INDEX VERSION 1.127
-D:\Project\GitProject\IPP\trunk\IPP\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1330684945.index
-\IPWeb\src
-D:\Project\GitProject\IPP\trunk\IPP\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3594665915.index
-\IPWeb\src
-D:\Project\GitProject\IPP\trunk\IPP\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1962684996.index
-\IPWeb\src
-D:\Project\GitProject\IPP\trunk\IPP\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\393550674.index
-\IPWeb\src

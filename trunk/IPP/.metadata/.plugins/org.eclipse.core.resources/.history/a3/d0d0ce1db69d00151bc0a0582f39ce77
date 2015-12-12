@@ -1,9 +1,0 @@
-/**
- * @author qihui
- * 2009-10-6
- */
-package com.qihui.ssh.service.user;
-
-public interface UserService {
-
-}
