@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.qihui.ssh.dao.entities.IpEmployee" table="ip_employee" catalog="ipp">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="employeeName" type="java.lang.String">
+            <column name="EMPLOYEE_NAME" length="50" not-null="true" />
+        </property>
+        <property name="englishName" type="java.lang.String">
+            <column name="ENGLISH_NAME" length="50" />
+        </property>
+        <property name="gender" type="java.lang.String">
+            <column name="GENDER" length="4" />
+        </property>
+        <property name="mail" type="java.lang.String">
+            <column name="MAIL" length="50" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" length="100" />
+        </property>
+        <property name="mobileNumber" type="java.lang.String">
+            <column name="MOBILE_NUMBER" length="20" />
+        </property>
+        <property name="createTime" type="java.sql.Timestamp">
+            <column name="CREATE_TIME" length="0" not-null="true" />
+        </property>
+        <property name="createBy" type="java.lang.String">
+            <column name="CREATE_BY" length="50" />
+        </property>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="MODIFY_TIME" length="0" />
+        </property>
+        <property name="modifyBy" type="java.lang.String">
+            <column name="MODIFY_BY" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>
