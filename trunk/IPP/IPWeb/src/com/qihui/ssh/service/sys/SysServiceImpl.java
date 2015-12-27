@@ -10,7 +10,6 @@ public class SysServiceImpl implements SysService {
 	private SysDAO sysDAO;
 
 	public boolean addEmployee(IpEmployee ipEmployee) {
-		ipEmployee.setEmployeeName("");;
 		Timestamp createTime = new Timestamp(System.currentTimeMillis()); 
 		ipEmployee.setCreateTime(createTime);
 		return sysDAO.addEmployee(ipEmployee);
