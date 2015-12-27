@@ -1,7 +1,6 @@
 package com.qihui.ssh.dao.entities;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 @SuppressWarnings("serial")
 public class IpEmployee extends BasePOJO {
@@ -17,7 +16,7 @@ public class IpEmployee extends BasePOJO {
 	private String mobileNumber;
 	private Timestamp createTime;
 	private String createBy;
-	private Date modifyTime;
+	private Timestamp modifyTime;
 	private String modifyBy;
 
 	// Constructors
@@ -27,18 +26,16 @@ public class IpEmployee extends BasePOJO {
 	}
 
 	/** minimal constructor */
-	public IpEmployee(Integer id, String employeeName, Timestamp createTime) {
-		this.id = id;
+	public IpEmployee(String employeeName, Timestamp createTime) {
 		this.employeeName = employeeName;
 		this.createTime = createTime;
 	}
 
 	/** full constructor */
-	public IpEmployee(Integer id, String employeeName, String englishName,
-			String gender, String mail, String address, String mobileNumber,
-			Timestamp createTime, String createBy, Date modifyTime,
+	public IpEmployee(String employeeName, String englishName, String gender,
+			String mail, String address, String mobileNumber,
+			Timestamp createTime, String createBy, Timestamp modifyTime,
 			String modifyBy) {
-		this.id = id;
 		this.employeeName = employeeName;
 		this.englishName = englishName;
 		this.gender = gender;
@@ -125,11 +122,11 @@ public class IpEmployee extends BasePOJO {
 		this.createBy = createBy;
 	}
 
-	public Date getModifyTime() {
+	public Timestamp getModifyTime() {
 		return this.modifyTime;
 	}
 
-	public void setModifyTime(Date modifyTime) {
+	public void setModifyTime(Timestamp modifyTime) {
 		this.modifyTime = modifyTime;
 	}
 
