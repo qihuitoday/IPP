@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <title>Login</title>
+	<link href="css/bootstrap.min.v3.3.4.css" rel="stylesheet" media="screen">
+	<script type="text/javascript" src="js/jquery-2.0.0.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	
+    <style>
+        h1 {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+        .rig-image {
+            padding-top: 16px;
+            width: 120px;
+            display: block;
+            margin: 40px auto 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <img class="rig-image" src="css/img/rig-icon-1.0.png"></img>
+                <h1>welcome</h1>
+                <p class="error"></p>
+                <form action="Home.html" method="post">
+                    <div class="form-group">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" name="username" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <input type="hidden" name="redirect_dest" value="%2F"/>
+                </form>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</body>
+</html>
