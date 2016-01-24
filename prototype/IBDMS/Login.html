@@ -18,6 +18,14 @@
             margin: 40px auto 6px;
         }
     </style>
+	
+<script type="text/javascript">
+
+	function fnRegister(){
+		location.href = "Register.html";
+	}
+
+</script>
 </head>
 
 <body>
@@ -38,6 +46,7 @@
                         <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
+					<button type="button" class="btn btn-link" onclick="fnRegister()">Register</button>
                     <input type="hidden" name="redirect_dest" value="%2F"/>
                 </form>
             </div>
