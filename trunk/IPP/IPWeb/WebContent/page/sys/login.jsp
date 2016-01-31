@@ -13,9 +13,20 @@
         margin: 40px auto 6px;
     }
 </style>
+
+<script type="text/javascript">
+	
+	function fnRegister(){
+		var form = document.myForm;
+	    //setAllDisabled(form);
+	    form.action = "registerUI";
+	    form.submit();
+	}
+</script>
+
 </head>
 <body>
-<form action="login" method="post">
+<form action="login" name="myForm" method="post"> 
 <div class="wrap">
     <jsp:include page="../common/header.jsp" ></jsp:include>
     <div class="container">
@@ -35,7 +46,7 @@
                         <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
-                    <input type="hidden" name="redirect_dest" value="%2F"/>
+                    <button type="button" class="btn btn-link" onclick="fnRegister()">Register</button>
                 </form>
             </div>
             <div class="col-md-2"></div>
