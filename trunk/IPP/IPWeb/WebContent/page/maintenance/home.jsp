@@ -1,11 +1,16 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
 <jsp:include page="../common/top.jsp" ></jsp:include>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <title>Home</title>
 <style>
 
 </style>
 <script type="text/javascript">
-
+	
+	function fnHome(){
+		var form = document.myForm;
+		form.submit();
+	}
 	 
 </script>
 </head>
@@ -17,7 +22,7 @@
 			<div>
 				<ul class="nav nav-pills pull-right" style="margin:5px 0px;">
 					<li class="active">
-						<a href="Home.html">Home Page</a>
+						<a href="#" onclick="fnHome()">Home Page</a>
 					</li>
 					<li>
 						<a href="#">Contact Us</a>
@@ -27,7 +32,7 @@
 					</li>
 				</ul>
 				<h3 class="text-muted" style="margin:0px; padding:12px 0px;">
-					Welcome: <a href="Profile.html">Derek</a>
+					Welcome: <a href="Profile.html"><s:property value="ipEmploye.mail"/></a>
 				</h3>
 			</div>
 		</div>
