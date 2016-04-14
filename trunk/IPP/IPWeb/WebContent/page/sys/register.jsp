@@ -1,14 +1,53 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <jsp:include page="../common/top.jsp" ></jsp:include>
-<jsp:include page="../common/top.jsp" ></jsp:include>
 <title>Register</title>
-
+<style>
+    h1 {
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    .rig-image {
+        padding-top: 16px;
+        width: 120px;
+        display: block;
+        margin: 40px auto 6px;
+    }
+</style>
 <script type="text/javascript">
 
+	function fnRegister(){
+		var form = document.myForm;
+		var email = document.getElementById("mail").value;
+		if(email === ""){
+			alert("Please input Email.");
+			document.getElementById("mail").focus();
+			return;
+		}
+		var password = document.getElementById("password").value;
+		if(password === ""){
+			alert("Please input Password.");
+			document.getElementById("password").focus();
+			return;
+		}
+		var confirmPassword = document.getElementById("confirmPassword").value;
+		if(confirmPassword === ""){
+			alert("Please input Confirm Password.");
+			document.getElementById("confirmPassword").focus();
+			return;
+		}
+		if(confirmPassword !== password){
+			alert("Confirm Password is not the same with Password.");
+			document.getElementById("confirmPassword").focus();
+			return;
+		}
+	    //setAllDisabled(form);
+		form.submit();
+	}
 	 
 </script>
 </head>
 <body>
+<form action="register" name="myForm" method="post" class="form-horizontal"> 
 <div class="wrap">
     <jsp:include page="../common/header.jsp" ></jsp:include>
     <div class="container">
@@ -16,71 +55,38 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <img class="rig-image" src="etc/css/img/rig-icon-1.0.png"></img>
-                <h1>welcome</h1>
+                <h1>Welcome to register.</h1>
                 <p class="error"></p>
-                <form action="Home.html" method="post">
-                    <div class="form-group">
-                        <label for="inputEmail">Email</label>
-                        <input type="email" class="form-control" id="inputEmail" name="username" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword">Password</label>
-                        <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                    <button type="button" class="btn btn-link" onclick="fnRegister()">Register</button>
-                </form>
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+					<div class="col-sm-9">
+						<input type="email" class="form-control" id="mail" name="mail" placeholder="Email">
+					</div>
+				</div>
+				<div class="form-group">
+                    <label for="inputEmail3" class="col-sm-3 control-label">Password</label>
+					<div class="col-sm-9">
+						<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+					</div>
+                </div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-3 control-label">Confirm Password</label>
+					<div class="col-sm-9">
+						<input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+					</div>
+                   </div>
+				<div class="form-group">
+					<div class="col-sm-offset-3 col-sm-10">
+						<button type="button" class="btn btn-default" onclick="fnRegister()">Register</button>
+						<button type="button" class="btn btn-link" onclick="fnLogin()">Login</button>
+					</div>
+				</div>
             </div>
             <div class="col-md-2"></div>
         </div>
     </div>
     <jsp:include page="../common/footer.jsp" ></jsp:include>
 </div>
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span12">
-			<div class="header">
-				<ul class="nav nav-pills pull-right">
-					<li>
-						<a href="#">Contact Us</a>
-					</li>
-					<li>
-						<a href="Login.html">Login</a>
-					</li>
-				</ul>
-				<h3 class="text-muted">
-					Welcome to IBDMS!
-				</h3>
-			</div>
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span12">
-		</div>
-	</div>
-	<div class="row-fluid" style="height:411px">
-		<form class="form-horizontal" action="Home.html" method="post">
-			<div class="control-group">
-				<label class="control-label" contenteditable="true" for="inputEmail">Email</label>
-				<div class="controls"><input id="inputEmail" placeholder="Email" type="text" /></div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" contenteditable="true" for="inputPassword">Password</label>
-				<div class="controls"><input id="inputPassword" placeholder="Password" type="password" /></div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" contenteditable="true" for="inputPassword">Confirm Password</label>
-				<div class="controls"><input id="inputPassword" placeholder="Confirm Password" type="password" /></div>
-			</div>
-			<div class="control-group">
-				<div class="controls"><button class="btn" type="submit">Done</button></div>
-			</div>
-		</form>
-	</div>
-	<div class="row-fluid">
-		<div class="span12">
-		</div>
-	</div>
-</div>
+</form>
 </body>
 </html>

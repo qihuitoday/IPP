@@ -12,11 +12,15 @@
 	<bean id="loginUI" class="com.qihui.ssh.web.sys.LoginUIAction" scope="prototype" />
 	<bean id="login" class="com.qihui.ssh.web.sys.LoginAction" scope="prototype" />
 	<bean id="logout" class="com.qihui.ssh.web.sys.LogoutAction" scope="prototype" />
-	<bean id="registerUI" class="com.qihui.ssh.web.sys.RegisterUIAction" scope="prototype" />
-	<bean id="register" class="com.qihui.ssh.web.sys.RegisterAction" scope="prototype" />
 	<!--Sys module end   -->
 
 	<!--User module begin-->
+	<bean id="registerUI" class="com.qihui.ssh.web.user.RegisterUIAction" scope="prototype" />
+	<bean id="register" class="com.qihui.ssh.web.user.RegisterAction" scope="prototype" />
 	<!--User module end  -->
+
+	<!--maintenance module begin-->
+	<bean id="home" class="com.qihui.ssh.web.maintenance.HomeAction" scope="prototype" />
+	<!--maintenance module end  -->
 	
 </beans>

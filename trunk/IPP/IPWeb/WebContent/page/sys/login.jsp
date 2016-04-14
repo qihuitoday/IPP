@@ -36,7 +36,6 @@
                 <img class="rig-image" src="etc/css/img/rig-icon-1.0.png"></img>
                 <h1>welcome</h1>
                 <p class="error"></p>
-                <form action="Home.html" method="post">
                     <div class="form-group">
                         <label for="inputEmail">Email</label>
                         <input type="email" class="form-control" id="inputEmail" name="username" placeholder="Email">
@@ -47,7 +46,6 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
                     <button type="button" class="btn btn-link" onclick="fnRegister()">Register</button>
-                </form>
             </div>
             <div class="col-md-2"></div>
         </div>
