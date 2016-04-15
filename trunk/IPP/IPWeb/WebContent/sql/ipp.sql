@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50521
 File Encoding         : 65001
 
-Date: 2015-12-12 18:51:54
+Date: 2016-04-14 23:31:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,20 +20,17 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `ip_employee`;
 CREATE TABLE `ip_employee` (
-  `ID` int(11) NOT NULL,
-  `EMPLOYEE_NAME` varchar(50) NOT NULL,
+  `ID` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `MAIL` varchar(50) NOT NULL,
+  `PASSWORD` varchar(50) NOT NULL,
+  `EMPLOYEE_NAME` varchar(50) DEFAULT NULL,
   `ENGLISH_NAME` varchar(50) DEFAULT NULL,
   `GENDER` varchar(4) DEFAULT NULL,
-  `MAIL` varchar(50) DEFAULT NULL,
   `ADDRESS` varchar(100) DEFAULT NULL,
   `MOBILE_NUMBER` varchar(20) DEFAULT NULL,
   `CREATE_TIME` datetime NOT NULL,
   `CREATE_BY` varchar(50) DEFAULT NULL,
-  `MODIFY_TIME` date DEFAULT NULL,
+  `MODIFY_TIME` datetime DEFAULT NULL,
   `MODIFY_BY` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of ip_employee
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;

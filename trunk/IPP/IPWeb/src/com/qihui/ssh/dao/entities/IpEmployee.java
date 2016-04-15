@@ -5,13 +5,12 @@ import java.sql.Timestamp;
 @SuppressWarnings("serial")
 public class IpEmployee extends BasePOJO {
 
-	// Fields
-
 	private Integer id;
+	private String mail;
+	private String password;
 	private String employeeName;
 	private String englishName;
 	private String gender;
-	private String mail;
 	private String address;
 	private String mobileNumber;
 	private Timestamp createTime;
@@ -19,36 +18,9 @@ public class IpEmployee extends BasePOJO {
 	private Timestamp modifyTime;
 	private String modifyBy;
 
-	// Constructors
-
 	/** default constructor */
 	public IpEmployee() {
 	}
-
-	/** minimal constructor */
-	public IpEmployee(String employeeName, Timestamp createTime) {
-		this.employeeName = employeeName;
-		this.createTime = createTime;
-	}
-
-	/** full constructor */
-	public IpEmployee(String employeeName, String englishName, String gender,
-			String mail, String address, String mobileNumber,
-			Timestamp createTime, String createBy, Timestamp modifyTime,
-			String modifyBy) {
-		this.employeeName = employeeName;
-		this.englishName = englishName;
-		this.gender = gender;
-		this.mail = mail;
-		this.address = address;
-		this.mobileNumber = mobileNumber;
-		this.createTime = createTime;
-		this.createBy = createBy;
-		this.modifyTime = modifyTime;
-		this.modifyBy = modifyBy;
-	}
-
-	// Property accessors
 
 	public Integer getId() {
 		return this.id;
@@ -136,6 +108,14 @@ public class IpEmployee extends BasePOJO {
 
 	public void setModifyBy(String modifyBy) {
 		this.modifyBy = modifyBy;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

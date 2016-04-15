@@ -1,5 +1,7 @@
 package com.qihui.ssh.service.user;
 
-public interface UserService {
+import com.qihui.ssh.dao.entities.IpEmployee;
 
+public interface UserService {
+	public boolean addEmployee(IpEmployee ipEmployee);
 }

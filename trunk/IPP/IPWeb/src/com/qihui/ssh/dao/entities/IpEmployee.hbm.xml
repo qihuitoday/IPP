@@ -8,17 +8,20 @@
             <column name="ID" />
             <generator class="identity" />
         </id>
+        <property name="mail" type="java.lang.String">
+            <column name="MAIL" length="50" not-null="true" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" length="50" not-null="true" />
+        </property>
         <property name="employeeName" type="java.lang.String">
-            <column name="EMPLOYEE_NAME" length="50" not-null="true" />
+            <column name="EMPLOYEE_NAME" length="50" />
         </property>
         <property name="englishName" type="java.lang.String">
             <column name="ENGLISH_NAME" length="50" />
         </property>
         <property name="gender" type="java.lang.String">
             <column name="GENDER" length="4" />
-        </property>
-        <property name="mail" type="java.lang.String">
-            <column name="MAIL" length="50" />
         </property>
         <property name="address" type="java.lang.String">
             <column name="ADDRESS" length="100" />
