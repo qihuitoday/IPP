@@ -12,7 +12,7 @@
 		<!--Sys module begin -->
 		<action name="login" class="login">
 			<result name="success" type="redirect">home</result>
-			<result name="failer" type="redirect">loginUI</result>
+			<result name="fail" type="redirect">loginUI</result>
 		</action>
 		<action name="loginUI" class="loginUI">
 			<result name="success">/page/sys/login.jsp</result>
@@ -34,6 +34,10 @@
 		<!--maintenance module begin-->
 		<action name="home" class="home">
 			<result name="success">/page/maintenance/home.jsp</result>
+		</action>
+		<action name="profile" class="profile">
+			<result name="success">/page/maintenance/profile.jsp</result>
+			<result name="updateSuccess" type="redirect">home</result>
 		</action>
 		<!--maintenance module end-->
 		
