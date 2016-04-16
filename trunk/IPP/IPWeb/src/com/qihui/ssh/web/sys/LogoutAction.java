@@ -7,7 +7,7 @@ public class LogoutAction extends BaseAction {
 
 	public String execute() throws Exception {
 		super.emptySession();
-		super.removeCookie("name");
+		super.removeCookie("mail");
 		return "success";
 	}
 }

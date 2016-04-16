@@ -11,6 +11,18 @@
 		var form = document.myForm;
 		form.submit();
 	}
+	
+	function fnLogout(){
+		var form = document.myForm;
+		form.action = "logout";
+		form.submit();
+	}
+	
+	function fnProfile(){
+		var form = document.myForm;
+		form.action = "profile";
+		form.submit();
+	}
 	 
 </script>
 </head>
@@ -28,11 +40,11 @@
 						<a href="#">Contact Us</a>
 					</li>
 					<li>
-						<a href="Login.html">Log Out</a>
+						<a href="#" onclick="fnLogout()">Log Out</a>
 					</li>
 				</ul>
 				<h3 class="text-muted" style="margin:0px; padding:12px 0px;">
-					Welcome: <a href="Profile.html"><s:property value="ipEmploye.mail"/></a>
+					Welcome: <a href="#" onclick="fnProfile()"><s:property value="ipEmployee.mail"/></a>
 				</h3>
 			</div>
 		</div>
@@ -111,6 +123,7 @@
 			</div>
 		</div>
 	</div>
+	<input type="hidden" id="uiFlag"  name="uiFlag">
 </div>
 </form>
 </body>

@@ -6,18 +6,19 @@ import com.qihui.ssh.web.BaseAction;
 @SuppressWarnings("serial")
 public class HomeAction extends BaseAction {
 
-	private IpEmployee ipEmploye = new IpEmployee();
-	
+	private IpEmployee ipEmployee = new IpEmployee();
+
 	public String execute() throws Exception {
-		ipEmploye = (IpEmployee)super.getSessionData("loginUser");
+		ipEmployee = (IpEmployee) super.getSessionData("loginUser");
 		return "success";
 	}
 
-	public IpEmployee getIpEmploye() {
-		return ipEmploye;
+	public IpEmployee getIpEmployee() {
+		return ipEmployee;
 	}
 
-	public void setIpEmploye(IpEmployee ipEmploye) {
-		this.ipEmploye = ipEmploye;
+	public void setIpEmployee(IpEmployee ipEmployee) {
+		this.ipEmployee = ipEmployee;
 	}
+
 }

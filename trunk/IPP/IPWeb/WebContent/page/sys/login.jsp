@@ -22,6 +22,23 @@
 	    form.action = "registerUI";
 	    form.submit();
 	}
+	
+	function fnLogin(){
+		var form = document.myForm;
+		var email = document.getElementById("mail").value;
+		if(email === ""){
+			alert("Please input Email.");
+			document.getElementById("mail").focus();
+			return;
+		}
+		var password = document.getElementById("password").value;
+		if(password === ""){
+			alert("Please input Password.");
+			document.getElementById("password").focus();
+			return;
+		}
+	    form.submit();
+	}
 </script>
 
 </head>
@@ -34,17 +51,17 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <img class="rig-image" src="etc/css/img/rig-icon-1.0.png"></img>
-                <h1>welcome</h1>
+                <h1>Welcome to login.</h1>
                 <p class="error"></p>
                     <div class="form-group">
                         <label for="inputEmail">Email</label>
-                        <input type="email" class="form-control" id="inputEmail" name="username" placeholder="Email">
+                        <input type="email" class="form-control" id="mail" name="mail" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <label for="inputPassword">Password</label>
-                        <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="button" class="btn btn-primary" onclick="fnLogin()">Login</button>
                     <button type="button" class="btn btn-link" onclick="fnRegister()">Register</button>
             </div>
             <div class="col-md-2"></div>

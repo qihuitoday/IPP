@@ -43,6 +43,12 @@
 	    //setAllDisabled(form);
 		form.submit();
 	}
+	
+	function fnLogin(){
+		var form = document.myForm;
+		form.action = "loginUI";
+		form.submit();
+	}
 	 
 </script>
 </head>
