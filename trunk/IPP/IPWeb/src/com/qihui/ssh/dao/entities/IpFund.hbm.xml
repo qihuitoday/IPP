@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.qihui.ssh.dao.entities.IpFund" table="ip_fund" catalog="ipp">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="uwCode" type="java.lang.String">
+            <column name="UW_CODE" length="10" not-null="true" />
+        </property>
+        <property name="productCode" type="java.lang.String">
+            <column name="PRODUCT_CODE" length="12" not-null="true" />
+        </property>
+        <property name="fundCode" type="java.lang.String">
+            <column name="FUND_CODE" length="50" not-null="true" />
+        </property>
+        <property name="fundName" type="java.lang.String">
+            <column name="FUND_NAME" length="102" not-null="true" />
+        </property>
+        <property name="localName" type="java.lang.String">
+            <column name="LOCAL_NAME" length="102"/>
+        </property>
+        <property name="currencyCode" type="java.lang.String">
+            <column name="CURRENCY_CODE" length="102"/>
+        </property>
+        <property name="riskLevel" type="java.lang.String">
+            <column name="RISK_LEVEL" length="1"/>
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" length="10"/>
+        </property>
+        <property name="makerID" type="java.lang.String">
+            <column name="MAKER_ID" length="20"/>
+        </property>
+        <property name="makerTS" type="java.sql.Timestamp">
+            <column name="MAKER_TS" length="0"/>
+        </property>
+        <property name="lastModifiedTS" type="java.sql.Timestamp">
+            <column name="LAST_MODIFIED_TS" length="0"/>
+        </property>
+    </class>
+</hibernate-mapping>
