@@ -12,6 +12,7 @@
 	<import resource="beans-sys.xml" />
 	<import resource="beans-user.xml" />
 	<import resource="beans-web.xml" />
+	<import resource="beans-maintenance.xml" />
 	
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
