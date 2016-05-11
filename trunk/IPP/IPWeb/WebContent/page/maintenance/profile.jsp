@@ -3,16 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <title>Register</title>
 <style>
-    h1 {
-        text-align: center;
-        padding-bottom: 10px;
-    }
-    .rig-image {
-        padding-top: 16px;
-        width: 120px;
-        display: block;
-        margin: 40px auto 6px;
-    }
+
 </style>
 <script type="text/javascript">
 	
@@ -27,7 +18,6 @@
 <body>
 <form action="register" name="myForm" method="post" class="form-horizontal"> 
 <div class="wrap">
-    <jsp:include page="../common/header.jsp" ></jsp:include>
     <div class="container">
         <div class="row">
             <div class="col-md-2"></div>

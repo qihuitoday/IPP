@@ -12,5 +12,7 @@ public interface FundDAO {
 
 	public List<IpFund> getFundByFundCode(String fundCode);
 	
+	public List<IpFund> getFundList(String fundCode, String fundName, String status);
+	
 	public boolean updateFund(IpFund ipFund);
 }

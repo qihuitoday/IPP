@@ -39,6 +39,14 @@
 			<result name="success">/page/maintenance/profile.jsp</result>
 			<result name="updateSuccess" type="redirect">home</result>
 		</action>
+		<action name="fund" class="fund">
+			<result name="listSuccess">/page/maintenance/fund/fundList.jsp</result>
+			<result name="viewSuccess">/page/maintenance/fund/fundDetails.jsp</result>
+			<result name="addSuccess" type="redirect">fundUI</result>
+		</action>
+		<action name="fundUI" class="fundUI">
+			<result name="success">/page/maintenance/fund/fundList.jsp</result>
+		</action>
 		<!--maintenance module end-->
 		
 	</package>

@@ -1,5 +1,6 @@
 package com.qihui.ssh.service.maintenance;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import com.qihui.ssh.dao.entities.IpFund;
@@ -7,10 +8,13 @@ import com.qihui.ssh.dao.maintenance.FundDAO;
 
 public class FundServiceImpl implements FundService {
 
-	FundDAO fundDAO;
+	private FundDAO fundDAO;
 
 	@Override
 	public boolean addFund(IpFund ipFund) {
+		Timestamp createTime = new Timestamp(System.currentTimeMillis());
+		ipFund.setMakerTS(createTime);
+		ipFund.setLastModifiedTS(createTime);
 		return fundDAO.addFund(ipFund);
 	}
 
@@ -35,6 +39,11 @@ public class FundServiceImpl implements FundService {
 
 	public void setFundDAO(FundDAO fundDAO) {
 		this.fundDAO = fundDAO;
+	}
+
+	@Override
+	public List<IpFund> getFundList(String fundCode, String fundName, String status) {
+		return fundDAO.getFundList(fundCode, fundName, status);
 	}
 
 }

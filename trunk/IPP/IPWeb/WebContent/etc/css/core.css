@@ -1,21 +1,27 @@
-body, div { font-family: 'lucida grande', helvetica, verdana, arial, sans-serif }
-body { margin: 0; padding: 0; font-size: small; color: #333 }
-h1, h2 { font-family: 'trebuchet ms', verdana, arial; padding: 10px; margin: 0 }
-h1 { font-size: large }
-#main { padding: 1em; }
-#banner { padding: 15px; background-color: #06b; color: white; font-size: large; border-bottom: 1px solid #ccc;
-    background: url(../images/bg.gif) repeat-x; text-align: center }
-#banner a { color: white; }
-	
-p { margin: 10px 0; }
+hr{
+	margin: 10px 0px 10px 0px;
+}
 
-li { margin-left: 10px; }
+.navbar-nav>li>a {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.navbar-brand {
+	height: 40px;
+	padding-top: 10px;
+}
+.navbar {
+	min-height: 40px;
+}
+.navbar-toggle {
+	margin-top: 40px;
+	margin-bottom: 4px;
+}
 
-h3 { margin: 1em 0 0; }
+.spaceLine{
+	height: 20px;
+}
 
-h1 { font-size: 2em; }
-h2 { font-size: 1.8em; }
-h3 { font-size: 1.6em; }
-h4 { font-size: 1.4em; }
-h5 { font-size: 1.2em; }
-
+.form-horizontal .control-label {
+	text-align: left;
+}

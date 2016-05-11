@@ -45,7 +45,6 @@
 <body>
 <form action="login" name="myForm" method="post"> 
 <div class="wrap">
-    <jsp:include page="../common/header.jsp" ></jsp:include>
     <div class="container">
         <div class="row">
             <div class="col-md-2"></div>

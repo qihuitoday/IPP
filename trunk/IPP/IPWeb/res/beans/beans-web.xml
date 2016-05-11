@@ -22,6 +22,8 @@
 	<!--maintenance module begin-->
 	<bean id="home" class="com.qihui.ssh.web.maintenance.HomeAction" scope="prototype" />
 	<bean id="profile" class="com.qihui.ssh.web.maintenance.ProfileAction" scope="prototype" />
+	<bean id="fund" class="com.qihui.ssh.web.maintenance.FundAction" scope="prototype" />
+	<bean id="fundUI" class="com.qihui.ssh.web.maintenance.FundUIAction" scope="prototype" />
 	<!--maintenance module end  -->
 	
 </beans>

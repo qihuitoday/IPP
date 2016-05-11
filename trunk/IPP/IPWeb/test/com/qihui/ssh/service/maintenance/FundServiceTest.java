@@ -1,5 +1,7 @@
 package com.qihui.ssh.service.maintenance;
 
+import java.util.List;
+
 import com.qihui.ssh.ContextTest;
 import com.qihui.ssh.dao.entities.IpFund;
 import com.qihui.ssh.service.user.UserService;
@@ -12,7 +14,7 @@ public class FundServiceTest extends ContextTest {
 	public void testAddFund() {
 		FundService fundService = getService();
 		IpFund ipFund = new IpFund();
-		ipFund.setFundCode("11");
+		ipFund.setFundCode("111");
 		ipFund.setFundName("22");
 		ipFund.setProductCode("33");
 		ipFund.setUwCode("44");
@@ -29,6 +31,14 @@ public class FundServiceTest extends ContextTest {
 		IpFund ipFund = fundService.getFundByID(1);
 		if (ipFund != null) {
 			System.out.println("getFundCode: " + ipFund.getFundCode() + " and getFundName: " + ipFund.getFundName());
+		}
+	}
+	
+	public void testGetFundList() {
+		FundService fundService = getService();
+		List<IpFund> fundList = fundService.getFundList("1", "1", "1");
+		if (fundList != null) {
+			System.out.println("testGetFundList successful!");
 		}
 	}
 

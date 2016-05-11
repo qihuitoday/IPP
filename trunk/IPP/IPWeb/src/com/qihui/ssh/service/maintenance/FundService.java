@@ -11,6 +11,8 @@ public interface FundService {
 	public IpFund getFundByID(int id);
 
 	public List<IpFund> getFundByFundCode(String fundCode);
+	
+	public List<IpFund> getFundList(String fundCode, String fundName, String status);
 
 	public boolean updateFund(IpFund ipFund);
 }

@@ -1,5 +1,7 @@
 package com.qihui.ssh.dao.entities;
 
+import java.sql.Timestamp;
+
 @SuppressWarnings("serial")
 public class IpFund extends BasePOJO {
 
@@ -13,8 +15,8 @@ public class IpFund extends BasePOJO {
 	private String riskLevel;
 	private String status;
 	private String makerID;
-	private String makerTS;
-	private String lastModifiedTS;
+	private Timestamp makerTS;
+	private Timestamp lastModifiedTS;
 
 	public Integer getId() {
 		return id;
@@ -96,20 +98,21 @@ public class IpFund extends BasePOJO {
 		this.makerID = makerID;
 	}
 
-	public String getMakerTS() {
+	public Timestamp getMakerTS() {
 		return makerTS;
 	}
 
-	public void setMakerTS(String makerTS) {
+	public void setMakerTS(Timestamp makerTS) {
 		this.makerTS = makerTS;
 	}
 
-	public String getLastModifiedTS() {
+	public Timestamp getLastModifiedTS() {
 		return lastModifiedTS;
 	}
 
-	public void setLastModifiedTS(String lastModifiedTS) {
+	public void setLastModifiedTS(Timestamp lastModifiedTS) {
 		this.lastModifiedTS = lastModifiedTS;
 	}
+
 
 }
