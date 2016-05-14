@@ -1,7 +1,7 @@
 <jsp:include page="../../common/top.jsp" ></jsp:include>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<title>Home</title>
+<title>Maintain Fund</title>
 <style>
 
 </style>
@@ -23,6 +23,21 @@
 		form.submit();
 	}
 	
+	function fnAdd(){
+		var form = document.myForm;
+		form.action = "fundUI";
+		$("#actionFlag").val("add");
+		form.submit();
+	}
+	
+	function fnView(id){
+		var form = document.myForm;
+		form.action = "fund";
+		$("#id").val(id);
+		$("#actionFlag").val("view");
+		form.submit();
+	}
+	
 </script>
 </head>
 <body>
@@ -39,29 +54,27 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<form action="IP Fund List - Search.html" method="post" class="form-horizontal">
-				<div class="row">
-					<label for="fundCode" class="col-md-2 control-label">Fund Code</label>
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="fundCode" name="fundCode" value="<s:property value='fundCode'/>">
-					</div>
-					<label for="fundName" class="col-md-2 control-label">Fund Name</label>
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="fundName" name="fundName" value="<s:property value='fundName'/>">
-					</div>
-					<label for="status" class="col-md-1 control-label">Status</label>
-					<div class="col-md-2">
-						<select class="form-control" id="status" name="status">
-						  	<option value="">-Select-</option>
-						  	<option value="Active" <s:if test="status == 'Active'">selected</s:if>>Active</option>
-						  	<option value="Closed" <s:if test="status == 'Closed'">selected</s:if>>Closed</option>
-						</select>
-					</div>
-					<div class="col-md-1">
-						<button type="button" class="btn btn-default" onclick="fnSearch()">Search</button>
-					</div>
+			<div class="row">
+				<label for="fundCode" class="col-md-2 control-label">Fund Code</label>
+				<div class="col-md-2">
+					<input type="text" class="form-control" id="fundCode" name="fundCode" value="<s:property value='fundCode'/>">
 				</div>
-			</form>
+				<label for="fundName" class="col-md-2 control-label">Fund Name</label>
+				<div class="col-md-2">
+					<input type="text" class="form-control" id="fundName" name="fundName" value="<s:property value='fundName'/>">
+				</div>
+				<label for="status" class="col-md-1 control-label">Status</label>
+				<div class="col-md-2">
+					<select class="form-control" id="status" name="status">
+					  	<option value="">-Select-</option>
+					  	<option value="Active" <s:if test="status == 'Active'">selected</s:if>>Active</option>
+					  	<option value="Closed" <s:if test="status == 'Closed'">selected</s:if>>Closed</option>
+					</select>
+				</div>
+				<div class="col-md-1">
+					<button type="button" class="btn btn-default" onclick="fnSearch()">Search</button>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="row">
@@ -94,7 +107,7 @@
 					<s:else>
 						<s:iterator value="fundList" var="nl">  
 							<tr>
-								<td><s:property value="#nl.id"/></td>
+								<td><a href="#" onclick="fnView(<s:property value='#nl.id'/>)"><s:property value="#nl.id"/></a></td>
 								<td><s:property value="#nl.fundCode"/></td>
 								<td><s:property value="#nl.fundName"/></td>
 								<td><s:property value="#nl.status"/></td>
@@ -114,6 +127,8 @@
 		</div>
 	</div>
 </div>
+<input type="hidden" id="id" name="id">
+<input type="hidden" id="actionFlag" name="actionFlag">
 </form>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.qihui.ssh.dao.entities;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 @SuppressWarnings("serial")
 public class IpFund extends BasePOJO {
@@ -15,6 +16,8 @@ public class IpFund extends BasePOJO {
 	private String riskLevel;
 	private String status;
 	private String makerID;
+	private Date startDate;
+	private Date endDate;
 	private Timestamp makerTS;
 	private Timestamp lastModifiedTS;
 
@@ -114,5 +117,20 @@ public class IpFund extends BasePOJO {
 		this.lastModifiedTS = lastModifiedTS;
 	}
 
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
 
 }

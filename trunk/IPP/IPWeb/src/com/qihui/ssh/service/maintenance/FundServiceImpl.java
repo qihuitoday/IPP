@@ -19,6 +19,20 @@ public class FundServiceImpl implements FundService {
 	}
 
 	@Override
+	public boolean updateFund(IpFund ipFund) {
+		IpFund tempFund = fundDAO.getFundByID(ipFund.getId());
+		tempFund.setFundName(ipFund.getFundName());
+		tempFund.setLocalName(ipFund.getLocalName());
+		tempFund.setCurrencyCode(ipFund.getCurrencyCode());
+		tempFund.setRiskLevel(ipFund.getRiskLevel());
+		tempFund.setStartDate(ipFund.getStartDate());
+		tempFund.setEndDate(ipFund.getEndDate());
+		tempFund.setStatus(ipFund.getStatus());
+		tempFund.setLastModifiedTS(new Timestamp(System.currentTimeMillis()));
+		return fundDAO.updateFund(tempFund);
+	}
+
+	@Override
 	public IpFund getFundByID(int id) {
 		return fundDAO.getFundByID(id);
 	}
@@ -26,11 +40,6 @@ public class FundServiceImpl implements FundService {
 	@Override
 	public List<IpFund> getFundByFundCode(String fundCode) {
 		return fundDAO.getFundByFundCode(fundCode);
-	}
-
-	@Override
-	public boolean updateFund(IpFund ipFund) {
-		return fundDAO.updateFund(ipFund);
 	}
 
 	public FundDAO getFundDAO() {

@@ -1,130 +1,153 @@
-<jsp:include page="../common/top.jsp" ></jsp:include>
+<jsp:include page="../../common/top.jsp" ></jsp:include>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<title>Home</title>
+<title>Maintain Fund</title>
 <style>
 
 </style>
 <script type="text/javascript">
-	
-	function fnHome(){
+
+	$(document).ready(function(){
+		$("#maintianFund").addClass("active");
+	});
+
+	function fnBack(){
 		var form = document.myForm;
+		form.action = "fundUI";
 		form.submit();
 	}
 	
-	function fnLogout(){
+	function fnModify(){
 		var form = document.myForm;
-		form.action = "logout";
+		form.action = "fund";
+		$("#actionFlag").val("modify");
 		form.submit();
 	}
 	
-	function fnProfile(){
-		var form = document.myForm;
-		form.action = "profile";
-		form.submit();
-	}
-	 
 </script>
 </head>
 <body>
-<form action="home" name="myForm" method="post" class="form-horizontal"> 
+<form action="fund" name="myForm" method="post" class="form-horizontal"> 
 <div class="container">
+	<jsp:include page="../../common/header.jsp" ></jsp:include>
 	<div class="row">
 		<div class="col-md-12">
-			<div>
-				<ul class="nav nav-pills pull-right" style="margin:5px 0px;">
-					<li class="active">
-						<a href="#" onclick="fnHome()">Home Page</a>
-					</li>
-					<li>
-						<a href="#">Contact Us</a>
-					</li>
-					<li>
-						<a href="#" onclick="fnLogout()">Log Out</a>
-					</li>
-				</ul>
-				<h3 class="text-muted" style="margin:0px; padding:12px 0px;">
-					Welcome: <a href="#" onclick="fnProfile()"><s:property value="ipEmployee.mail"/></a>
-				</h3>
-			</div>
+			<ol class="breadcrumb">
+				<li><a href="#" onclick="fnFund()">Maintain Fund</a></li>
+				<li class="active">View Fund</li>
+			</ol>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" style="height:411px">
 		<div class="col-md-12">
-			<nav class="navbar navbar-default">
-				<div class="container-fluid">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar">111</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="#">IBDMS</a>
-					</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav">
-							<li><a href="IP Fund List.html">Maintain Fund<span class="sr-only">(current)</span></a></li>
-							<li><a href="#">Maintain Product</a></li>
-							<li><a href="#">Maintain Underwater</a></li>
-							<li><a href="#">Maintain Rider</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown<span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Something else here</a></li>
-									<li role="separator" class="divider"></li>
-									<li><a href="#">Separated link</a></li>
-									<li role="separator" class="divider"></li>
-									<li><a href="#">One more separated link</a></li>
-								</ul>
-							</li>
-						</ul>
-						<!--
-						<form class="navbar-form navbar-left" role="search">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Search">
-							</div>
-							<button type="submit" class="btn btn-default">Submit</button>
-						</form>
-						-->
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#">Right Link</a></li>
-							<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-							</ul>
-							</li>
-						</ul>
-					</div><!-- /.navbar-collapse -->
-				</div><!-- /.container-fluid -->
-			</nav>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="jumbotron well">
-				<div>
-					<h1 style="margin-top: 0px;">Welcome!</h1>
-					<h2>Insurance Basic Data Maintain System is used internally only.</h2>
-					<h2>You can use it to maintain all insurance basic data.</h2>
-					<h2>All the basic data will be used by Transaction modules.</h2>
+			<div class="row">
+				<label for="id" class="col-md-2 control-label">ID</label>
+				<div class="col-md-2">
+					<input type="text" class="form-control" id="id" name="objIpFund.id" value="<s:property value='objIpFund.id'/>" disabled>
 				</div>
-				<p style="padding-top: 80px;">
-					Notice: You are authorized to use this System for approved business purposes only.
-				</p>
+			</div>
+			<hr/>
+			<div class="row">
+				<label for="uwCode" class="col-md-2 control-label">Underwriter</label>
+				<div class="col-md-2">
+					<select class="form-control" id="uwCode" name="objIpFund.uwCode" disabled>
+						<option value="">-Select-</option>
+					  	<option value="ACE" <s:if test="objIpFund.uwCode == 'ACE'">selected</s:if>>ACE</option>
+					  	<option value="AIA" <s:if test="objIpFund.uwCode == 'AIA'">selected</s:if>>AIA</option>
+					  	<option value="TAIPING" <s:if test="objIpFund.uwCode == 'TAIPING'">selected</s:if>>TAIPING</option>
+					</select>
+				</div>
+				<label for="productCode" class="col-md-2 control-label">Product Code</label>
+				<div class="col-md-2">
+					<input type="text" class="form-control" id="productCode" name="objIpFund.productCode" value="<s:property value='objIpFund.productCode'/>" disabled>
+				</div>
+				<label for="fundCode" class="col-md-2 control-label">Fund Code</label>
+				<div class="col-md-2">
+					<input type="text" class="form-control" id="fundCode" name="objIpFund.fundCode" value="<s:property value='objIpFund.fundCode'/>" disabled>
+				</div>
+			</div>
+			<hr/>
+			<div class="row">
+				<label for="fundName" class="col-md-2 control-label">Fund Name</label>
+				<div class="col-md-2">
+					<input type="text" class="form-control" id="fundName" name="objIpFund.fundName" value="<s:property value='objIpFund.fundName'/>" disabled>
+				</div>
+				<label for="localName" class="col-md-2 control-label">Local Name</label>
+				<div class="col-md-2">
+					<input type="text" class="form-control" id="localName" name="objIpFund.localName" value="<s:property value='objIpFund.localName'/>" disabled>
+				</div>
+				<label for="currencyCode" class="col-md-2 control-label text-left">Currency Code</label>
+				<div class="col-md-2">
+					<select class="form-control" id="currencyCode" name="objIpFund.currencyCode" disabled>
+						<option value="">-Select-</option>
+					  	<option value="USD" <s:if test="objIpFund.currencyCode == 'USD'">selected</s:if>>USD</option>
+					  	<option value="HKD" <s:if test="objIpFund.currencyCode == 'HKD'">selected</s:if>>HKD</option>
+					  	<option value="RMB" <s:if test="objIpFund.currencyCode == 'RMB'">selected</s:if>>RMB</option>
+					</select>
+				</div>
+			</div>
+			<hr/>
+			<div class="row">
+				<label for="riskLevel" class="col-md-2 control-label">Risk Level</label>
+				<div class="col-md-2">
+					<select class="form-control" id="riskLevel" name="objIpFund.riskLevel" disabled>
+						<option value="">-Select-</option>
+					  	<option value="1" <s:if test="objIpFund.riskLevel == 1">selected</s:if>>1</option>
+					  	<option value="2" <s:if test="objIpFund.riskLevel == 2">selected</s:if>>2</option>
+					  	<option value="3" <s:if test="objIpFund.riskLevel == 3">selected</s:if>>3</option>
+					</select>
+				</div>
+				<label for="effectiveDate" class="col-md-2 control-label">Start Date</label>
+				<div class="col-md-2">
+					<div class='input-group date form_datetime'>
+						<input type='text' class="form-control" readonly="readonly" id="effectiveDate" name="objIpFund.startDate" value="<s:date name='objIpFund.startDate' format='yyyy-MM-dd'/>" disabled/>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+					</div>
+				</div>
+				<label for="endDate" class="col-md-2 control-label">End Date</label>
+				<div class="col-md-2">
+					<div class='input-group date form_datetime'>
+						<input type='text' class="form-control" readonly="readonly" id="endDate" name="objIpFund.endDate" value="<s:date name='objIpFund.endDate' format='yyyy-MM-dd'/>" disabled/>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+					</div>
+				</div>
+			</div>
+			<hr/>
+			<div class="row">
+				<label for="status" class="col-md-2 control-label">Status</label>
+				<div class="col-md-2">
+					<select class="form-control" id="status" name="objIpFund.status" disabled>
+					  	<option value="Active" <s:if test="objIpFund.status == 'Active'">selected</s:if>>Active</option>
+					  	<option value="Closed" <s:if test="objIpFund.status == 'Closed'">selected</s:if>>Closed</option>
+					</select>
+				</div>
 			</div>
 		</div>
 	</div>
-	<input type="hidden" id="uiFlag"  name="uiFlag">
+	<div class="row">
+		<div class="col-md-4" align="left">
+			 <button class="btn btn-default" type="button" onclick="fnBack();">Back</button>
+		</div>
+		<div class="col-md-8" align="right">
+			<button class="btn btn-default" type="button" onclick="fnModify();">Modify</button>
+		</div>
+	</div>
 </div>
+<input type="hidden" id="id" name="id" value="<s:property value='objIpFund.id'/>">
+<input type="hidden" id="actionFlag" name="actionFlag">
 </form>
+<script type="text/javascript">
+
+	$(function () {
+		$(".form_datetime").datetimepicker({
+			//viewMode: 'days',
+			useCurrent: false,
+			format: 'YYYY-MM-DD',
+			showTodayButton: true,
+			showClear:true
+		});
+	});
+	
+</script>
 </body>
 </html>

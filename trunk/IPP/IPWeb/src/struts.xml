@@ -42,10 +42,13 @@
 		<action name="fund" class="fund">
 			<result name="listSuccess">/page/maintenance/fund/fundList.jsp</result>
 			<result name="viewSuccess">/page/maintenance/fund/fundDetails.jsp</result>
-			<result name="addSuccess" type="redirect">fundUI</result>
+			<result name="modifySuccess">/page/maintenance/fund/fundEdit.jsp</result>
+			<result name="addDoneSuccess">/page/common/success.jsp</result>
+			<result name="modifyDoneSuccess">/page/common/success.jsp</result>
 		</action>
 		<action name="fundUI" class="fundUI">
-			<result name="success">/page/maintenance/fund/fundList.jsp</result>
+			<result name="listSuccess">/page/maintenance/fund/fundList.jsp</result>
+			<result name="addSuccess">/page/maintenance/fund/fundEdit.jsp</result>
 		</action>
 		<!--maintenance module end-->
 		
