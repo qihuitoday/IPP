@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50521
 File Encoding         : 65001
 
-Date: 2016-05-12 00:02:33
+Date: 2016-05-15 02:16:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -57,13 +57,17 @@ CREATE TABLE `ip_fund` (
   `RISK_LEVEL` varchar(1) DEFAULT NULL,
   `STATUS` varchar(10) DEFAULT NULL,
   `MAKER_ID` varchar(20) DEFAULT NULL,
+  `START_DATE` date DEFAULT NULL,
+  `END_DATE` date DEFAULT NULL,
   `MAKER_TS` datetime NOT NULL,
   `LAST_MODIFIED_TS` datetime NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ip_fund
 -- ----------------------------
-INSERT INTO `ip_fund` VALUES ('1', '1', '1', '1', '1', '1', '1', '1', 'Active', null, '2016-05-11 22:38:50', '2016-05-11 22:38:55');
-INSERT INTO `ip_fund` VALUES ('2', '44', '33', '111', '22', null, null, null, 'Closed', null, '2016-05-11 22:52:49', '2016-05-11 22:52:49');
+INSERT INTO `ip_fund` VALUES ('5', 'ACE', '4', '4', '5', '5', 'HKD', '3', 'Closed', '1', '2016-05-12', '2016-05-12', '2016-05-15 00:30:58', '2016-05-15 01:53:16');
+INSERT INTO `ip_fund` VALUES ('6', 'ACE', '6', '6', '6', '6', 'USD', '1', 'Active', '1', '2016-05-03', '2016-05-12', '2016-05-15 01:28:06', '2016-05-15 01:28:06');
+INSERT INTO `ip_fund` VALUES ('7', 'ACE', '7', '7', '77', '77', 'USD', '1', 'Active', '1', '2016-05-15', '2016-05-15', '2016-05-15 01:55:22', '2016-05-15 02:03:25');
+INSERT INTO `ip_fund` VALUES ('8', 'AIA', '8', '8', '8', '8', 'USD', '', 'Active', '1', null, null, '2016-05-15 02:03:53', '2016-05-15 02:04:02');

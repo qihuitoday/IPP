@@ -4,7 +4,7 @@
 
 	function fnHome(){
 		var form = document.myForm;
-		form.submit();
+		//form.submit();
 	}
 	
 	function fnLogout(){
