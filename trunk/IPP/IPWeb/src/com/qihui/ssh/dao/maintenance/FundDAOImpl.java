@@ -35,13 +35,13 @@ public class FundDAOImpl extends BaseDAOImpl implements FundDAO {
 	@Override
 	public List<IpFund> getFundList(String fundCode, String fundName, String status) {
 		DetachedCriteria detachedCriteria = DetachedCriteria.forClass(IpFund.class);
-		if(!"".equalsIgnoreCase(fundCode.trim())){
+		if (!"".equalsIgnoreCase(fundCode.trim())) {
 			detachedCriteria.add(Restrictions.eq("fundCode", fundCode.trim()));
 		}
-		if(!"".equalsIgnoreCase(fundName.trim())){
+		if (!"".equalsIgnoreCase(fundName.trim())) {
 			detachedCriteria.add(Restrictions.eq("fundName", fundName.trim()));
 		}
-		if(!"".equalsIgnoreCase(status.trim())){
+		if (!"".equalsIgnoreCase(status.trim())) {
 			detachedCriteria.add(Restrictions.eq("status", status.trim()));
 		}
 		return getHibernateTemplate().findByCriteria(detachedCriteria);
