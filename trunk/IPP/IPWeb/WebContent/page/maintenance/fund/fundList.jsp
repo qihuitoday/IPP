@@ -82,7 +82,10 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<table class="table table-striped table-hover table-bordered">
+			<table id="table"
+           data-toggle="table"
+           data-show-columns="true"
+           data-height="300">
 				<thead>
 					<tr>
 						<th>ID</th>
@@ -94,11 +97,6 @@
 					</tr>
 				</thead>
 				<tbody>
-					<s:if test="fundList == null">
-						<tr height="185px">
-							<td colspan="6"></td>
-						</tr>
-					</s:if>
 					<s:if test="fundList.size() == 0">
 						<tr height="185px">
 							<td colspan="6" style="text-align: center; vertical-align: middle;">No record is found!</td>
